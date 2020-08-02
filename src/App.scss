@@ -160,6 +160,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  transition: background-color 0.5s ease-out;
 
   @include mq("900px") {
     padding: 0 10px;
