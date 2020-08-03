@@ -139,7 +139,7 @@ export const AddTask = ({
                 setShowMain(false);
                 setShowProjectOverlay(false);
               }}
-              onKeyPress={() => {
+              onKeyDown={() => {
                 setShowMain(false);
                 setShowProjectOverlay(false);
               }}
@@ -171,8 +171,7 @@ export const AddTask = ({
             <FaRegCalendarAlt />
           </span>
         </div>
-      )
-      }
-    </div >
+      )}
+    </div>
   );
 };
