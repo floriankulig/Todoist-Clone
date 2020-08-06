@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useProjectsValue } from "../context";
 
 export const ProjectOverlay = ({
@@ -22,11 +21,9 @@ export const ProjectOverlay = ({
                   setProject(project.projectId);
                   setShowProjectOverlay(false);
                 }}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    setProject(project.projectId);
-                    setShowProjectOverlay(false);
-                  }
+                onKeyDown={() => {
+                  setProject(project.projectId);
+                  setShowProjectOverlay(false);
                 }}
                 role="button"
                 tabIndex={0}
@@ -40,8 +37,4 @@ export const ProjectOverlay = ({
       </div>
     )
   );
-};
-
-ProjectOverlay.propTypes = {
-  projects: PropTypes.array,
 };
