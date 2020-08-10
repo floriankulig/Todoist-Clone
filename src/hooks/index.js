@@ -22,7 +22,7 @@ export const useTasks = (selectedProject) => {
             "==",
             moment().format("DD/MM/YYYY")
           ))
-        : selectedProject === " INBOX" || selectedProject === 0
+        : selectedProject === "INBOX" || selectedProject === 0
         ? (unsubscribe = unsubscribe.where("date", "==", ""))
         : unsubscribe;
 
@@ -41,7 +41,6 @@ export const useTasks = (selectedProject) => {
             )
           : newTasks.filter((task) => task.archived !== true)
       );
-
       setArchivedTasks(newTasks.filter((task) => task.archived !== false));
     });
 
