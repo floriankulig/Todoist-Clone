@@ -136,11 +136,19 @@ $generic-bg: #db4c3f;
 
 /* Darkmode
      ============================================ */
+$darkmode-primary: #ff0000;
+$darkmode-secondary: #313131; //black
+$darkmode-default: #343335; //deep blue
+$darkmode-transition: background-color 0.25s ease-out;
+
 .darkmode {
+  background-color: $darkmode-default;
+  transition: $darkmode-transition;
+
   header {
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
-    background-color: #282828;
+    background-color: $darkmode-secondary;
     border-color: transparent;
   }
 }
