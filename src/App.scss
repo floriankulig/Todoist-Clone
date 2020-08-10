@@ -134,25 +134,6 @@ $generic-bg: #db4c3f;
   }
 }
 
-/* Darkmode
-     ============================================ */
-$darkmode-primary: #ff0000;
-$darkmode-secondary: #313131; //black
-$darkmode-default: #343335; //deep blue
-$darkmode-transition: background-color 0.25s ease-out;
-
-.darkmode {
-  background-color: $darkmode-default;
-  transition: $darkmode-transition;
-
-  header {
-    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
-    background-color: $darkmode-secondary;
-    border-color: transparent;
-  }
-}
-
 /* Header
      ============================================ */
 header {
@@ -733,5 +714,59 @@ header {
 
   &__cancel {
     @include cancel();
+  }
+}
+
+/* Darkmode
+     ============================================ */
+$darkmode-header: #313131; // pure black
+$darkmode-primary: #3d2f53; // blue-purple-ish
+$darkmode-secondary: #343335; //deep blue
+$darkmode-transition: background-color 0.25s ease-out;
+
+.darkmode {
+  background-color: $darkmode-secondary;
+  transition: $darkmode-transition;
+
+  header {
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+    background-color: $darkmode-header;
+    border-color: transparent;
+  }
+
+  .sidebar {
+    background-color: $darkmode-secondary;
+    color: white;
+    transition: $darkmode-transition;
+
+    &__generic {
+      transition: $darkmode-transition;
+      color: white;
+      background-color: $darkmode-primary;
+      border-radius: 20px;
+
+      li {
+        div {
+          span {
+            color: white;
+            svg:first-of-type {
+              color: rgb(200, 200, 200);
+              transition: $darkmode-transition;
+            }
+          }
+        }
+        &.active,
+        &:hover {
+          font-weight: bold;
+          background-color: $darkmode-primary;
+          border-radius: 20px;
+        }
+      }
+    }
+
+    __middle {
+      color: white;
+    }
   }
 }
