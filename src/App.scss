@@ -352,6 +352,9 @@ header {
         -webkit-transform: rotate(-90deg);
         transform: rotate(-90deg);
       }
+      svg {
+        transition: all 0.25s ease-out;
+      }
     }
 
     h2 {
@@ -782,6 +785,17 @@ $darkmode-transition: background-color 0.25s ease-out;
             background-color: $darkmode-primary-light;
             border-radius: 0px 0px 0px 20px;
           }
+        }
+      }
+    }
+
+    &__middle {
+      h2 {
+        color: white;
+      }
+      span {
+        svg {
+          color: $darkmode-svg;
         }
       }
     }
