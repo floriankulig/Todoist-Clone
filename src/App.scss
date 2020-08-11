@@ -720,10 +720,11 @@ header {
 /* Darkmode
      ============================================ */
 $darkmode-header: rgb(49, 49, 49); // pure black
-$darkmode-primary: rgb(61, 47, 83); // blue-purple-ish
-$darkmode-primary-light: rgb(75, 62, 95);
-$darkmode-secondary: rgb(52, 52, 52); //deep blue
-$darkmode-secondary-light: rgb(62, 57, 68);
+$darkmode-primary: rgb(68, 57, 85); // blue-purple-ish
+$darkmode-primary-light: rgb(96, 71, 134);
+$darkmode-secondary: rgb(48, 42, 54); //deep blue
+$darkmode-secondary-light: rgb(61, 57, 66);
+$darkmode-svg: rgb(200, 200, 200);
 $darkmode-transition: background-color 0.25s ease-out;
 
 .darkmode {
@@ -755,7 +756,7 @@ $darkmode-transition: background-color 0.25s ease-out;
           span {
             color: white;
             svg:first-of-type {
-              color: rgb(200, 200, 200);
+              color: $darkmode-svg;
               transition: $darkmode-transition;
             }
           }
@@ -763,7 +764,6 @@ $darkmode-transition: background-color 0.25s ease-out;
         &:nth-child(1) {
           &.active,
           &:hover {
-            font-weight: bold;
             background-color: $darkmode-primary-light;
             border-radius: 20px 0px 0px 0px;
           }
@@ -771,24 +771,19 @@ $darkmode-transition: background-color 0.25s ease-out;
         &:nth-child(2) {
           &.active,
           &:hover {
-            font-weight: bold;
             background-color: $darkmode-primary-light;
             border-radius: 0;
           }
         }
+
         &:nth-child(3) {
           &.active,
           &:hover {
-            font-weight: bold;
             background-color: $darkmode-primary-light;
             border-radius: 0px 0px 0px 20px;
           }
         }
       }
-    }
-
-    __middle {
-      color: white;
     }
   }
 }
