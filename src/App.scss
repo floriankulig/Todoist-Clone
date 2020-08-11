@@ -751,7 +751,7 @@ $darkmode-transition: background-color 0.25s ease-out;
     &__generic {
       transition: $darkmode-transition;
       color: $darkmode-text;
-      background-color: $darkmode-primary;
+      background-color: $darkmode-primary-light;
       border-radius: 20px 0px 0px 20px;
 
       li {
@@ -769,14 +769,14 @@ $darkmode-transition: background-color 0.25s ease-out;
         &:nth-child(1) {
           &.active,
           &:hover {
-            background-color: $darkmode-primary-light;
+            background-color: $darkmode-primary;
             border-radius: 20px 0px 0px 0px;
           }
         }
         &:nth-child(2) {
           &.active,
           &:hover {
-            background-color: $darkmode-primary-light;
+            background-color: $darkmode-primary;
             border-radius: 0;
           }
         }
@@ -784,7 +784,7 @@ $darkmode-transition: background-color 0.25s ease-out;
         &:nth-child(3) {
           &.active,
           &:hover {
-            background-color: $darkmode-primary-light;
+            background-color: $darkmode-primary;
             border-radius: 0px 0px 0px 20px;
           }
         }
