@@ -801,5 +801,30 @@ $darkmode-transition: background-color 0.25s ease-out;
         }
       }
     }
+
+    &__project {
+      &.active,
+      &:hover {
+        background-color: $darkmode-primary;
+        border-radius: 0;
+      }
+
+      &:first-of-type {
+        background-color: $darkmode-primary-light;
+        border-radius: 20px 0px 0px 0px;
+        &.active,
+        &:hover {
+          background-color: $darkmode-primary;
+        }
+      }
+      &:last-of-type {
+        background-color: $darkmode-primary-light;
+        border-radius: 0px 0px 0px 20px;
+        &.active,
+        &:hover {
+          background-color: $darkmode-primary;
+        }
+      }
+    }
   }
 }
