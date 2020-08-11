@@ -148,7 +148,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease;
 
   @include mq("900px") {
     padding: 0 10px;
@@ -242,7 +242,7 @@ header {
      ============================================ */
 .sidebar {
   @include no-select();
-  width: 266px;
+  width: 275px;
   height: calc(100vh);
   padding-top: 74px;
   position: fixed;
@@ -250,6 +250,7 @@ header {
   overflow-y: hidden;
   border-right: $generic-border;
   background-color: #fafafa;
+  padding-left: 10px;
 
   @include mq("900px") {
     display: none;
@@ -452,7 +453,7 @@ header {
   -ms-flex-align: center;
   align-items: center;
   grid-template-columns: 1fr auto;
-  max-width: 922px;
+  max-width: 930px;
   margin: auto;
 }
 
@@ -723,10 +724,10 @@ header {
 /* Darkmode
      ============================================ */
 $darkmode-header: rgb(49, 49, 49); // pure black
-$darkmode-primary: rgb(68, 57, 85); // blue-purple-ish
-$darkmode-primary-light: rgb(96, 71, 134);
-$darkmode-secondary: rgb(48, 42, 54); //deep blue
-$darkmode-secondary-light: rgb(61, 57, 66);
+$darkmode-primary: rgb(53, 47, 68); // blue-purple-ish
+$darkmode-primary-light: rgb(92, 84, 112);
+$darkmode-secondary: rgb(48, 42, 54); // deep blue
+$darkmode-secondary-light: rgb(55, 49, 61);
 $darkmode-text: rgb(219, 216, 227);
 $darkmode-svg: rgb(200, 200, 200);
 $darkmode-transition: background-color 0.25s ease-out;
