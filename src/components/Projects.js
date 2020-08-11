@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { useSelectedProjectValue, useProjectsValue } from "../context";
 import { IndividualProject } from "./IndividualProject";
 
-export const Projects = ({ activeValue = null }) => {
+export const Projects = ({
+  activeValue = null,
+  activeGeneric,
+  setActiveGeneric,
+}) => {
   const [active, setActive] = useState(activeValue);
   const { setSelectedProject } = useSelectedProjectValue();
   const { projects } = useProjectsValue();
@@ -15,7 +19,7 @@ export const Projects = ({ activeValue = null }) => {
         data-doc-id={project.docId}
         data-testid="project-action-parent"
         className={
-          active === project.projectId
+          active === project.projectId && !activeGeneric
             ? "active sidebar__project"
             : "sidebar__project"
         }
@@ -28,10 +32,12 @@ export const Projects = ({ activeValue = null }) => {
           onClick={() => {
             setActive(project.projectId);
             setSelectedProject(project.projectId);
+            setActiveGeneric(null);
           }}
           onKeyDown={() => {
             setActive(project.projectId);
             setSelectedProject(project.projectId);
+            setActiveGeneric(null);
           }}
         >
           <IndividualProject project={project} />

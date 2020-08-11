@@ -11,7 +11,7 @@ import { AddProject } from "../AddProject";
 
 export const Sidebar = () => {
   const { setSelectedProject } = useSelectedProjectValue();
-  const [active, setActive] = useState("inbox");
+  const [active, setActive] = useState(null);
   const [showProjects, setShowProjects] = useState(true);
 
   return (
@@ -110,7 +110,11 @@ export const Sidebar = () => {
         <h2>Projects</h2>
       </div>
 
-      <ul className="sidebar__projects">{showProjects && <Projects />}</ul>
+      <ul className="sidebar__projects">
+        {showProjects && (
+          <Projects setActiveGeneric={setActive} activeGeneric={active} />
+        )}
+      </ul>
 
       {showProjects && <AddProject />}
     </div>
