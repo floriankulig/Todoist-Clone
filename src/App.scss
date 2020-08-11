@@ -727,6 +727,7 @@ $darkmode-primary: rgb(68, 57, 85); // blue-purple-ish
 $darkmode-primary-light: rgb(96, 71, 134);
 $darkmode-secondary: rgb(48, 42, 54); //deep blue
 $darkmode-secondary-light: rgb(61, 57, 66);
+$darkmode-text: rgb(219, 216, 227);
 $darkmode-svg: rgb(200, 200, 200);
 $darkmode-transition: background-color 0.25s ease-out;
 
@@ -743,12 +744,12 @@ $darkmode-transition: background-color 0.25s ease-out;
 
   .sidebar {
     background-color: $darkmode-secondary-light;
-    color: white;
+    color: $darkmode-text;
     transition: $darkmode-transition;
 
     &__generic {
       transition: $darkmode-transition;
-      color: white;
+      color: $darkmode-text;
       background-color: $darkmode-primary;
       border-radius: 20px 0px 0px 20px;
 
@@ -757,7 +758,7 @@ $darkmode-transition: background-color 0.25s ease-out;
         @include transparent-button();
         div {
           span {
-            color: white;
+            color: $darkmode-text;
             svg:first-of-type {
               color: $darkmode-svg;
               transition: $darkmode-transition;
@@ -791,7 +792,7 @@ $darkmode-transition: background-color 0.25s ease-out;
 
     &__middle {
       h2 {
-        color: white;
+        color: $darkmode-text;
       }
       span {
         svg {
