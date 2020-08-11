@@ -803,12 +803,15 @@ $darkmode-transition: background-color 0.25s ease-out;
     }
 
     &__project {
+      transition: $darkmode-transition;
+
       &.active,
       &:hover {
         background-color: $darkmode-primary;
         border-radius: 0;
       }
 
+      //Make sure first and last project have rounded corners
       &:first-of-type {
         background-color: $darkmode-primary-light;
         border-radius: 20px 0px 0px 0px;
