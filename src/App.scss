@@ -804,6 +804,7 @@ $darkmode-transition: background-color 0.25s ease-out;
 
     &__project {
       transition: $darkmode-transition;
+      background-color: $darkmode-primary-light;
 
       &.active,
       &:hover {
