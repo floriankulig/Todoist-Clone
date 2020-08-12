@@ -740,9 +740,11 @@ $darkmode-svg: rgb(200, 200, 200);
 $darkmode-transition: background-color 0.25s ease-out;
 
 .darkmode {
+  //BODY
   background-color: $darkmode-secondary;
   transition: $darkmode-transition;
 
+  //HEADER
   header {
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
@@ -750,10 +752,12 @@ $darkmode-transition: background-color 0.25s ease-out;
     border-color: transparent;
   }
 
+  //SIDEBAR
   .sidebar {
     background-color: $darkmode-secondary-light;
     color: $darkmode-text;
     transition: $darkmode-transition;
+    border-right: none;
 
     &__generic {
       transition: $darkmode-transition;
@@ -839,11 +843,8 @@ $darkmode-transition: background-color 0.25s ease-out;
     }
   }
 
-  .add-project {
-    &__text {
-      color: $darkmode-text;
-    }
-
+  .add-project,
+  .add-task {
     &__input {
       margin-bottom: 20px;
     }
@@ -860,12 +861,31 @@ $darkmode-transition: background-color 0.25s ease-out;
       @include cancel();
       color: $darkmode-text;
     }
+
+    &__text {
+      color: $darkmode-text;
+    }
+    &__plus {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
   }
 
-  .add-task__plus,
-  .add-project__plus {
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+  //TASKS
+  .tasks {
+    border-right-color: $darkmode-secondary;
+    background-color: $darkmode-primary;
+    color: $darkmode-text;
+
+    &__list li {
+      .checkbox {
+        background-color: $darkmode-svg;
+      }
+
+      span {
+        color: $darkmode-text;
+      }
     }
   }
 }
