@@ -11,7 +11,7 @@ import { AddProject } from "../AddProject";
 
 export const Sidebar = () => {
   const { setSelectedProject } = useSelectedProjectValue();
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState("");
   const [showProjects, setShowProjects] = useState(true);
 
   return (

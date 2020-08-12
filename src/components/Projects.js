@@ -32,12 +32,12 @@ export const Projects = ({
           onClick={() => {
             setActive(project.projectId);
             setSelectedProject(project.projectId);
-            setActiveGeneric(null);
+            setActiveGeneric("");
           }}
           onKeyDown={() => {
             setActive(project.projectId);
             setSelectedProject(project.projectId);
-            setActiveGeneric(null);
+            setActiveGeneric("");
           }}
         >
           <IndividualProject project={project} />
