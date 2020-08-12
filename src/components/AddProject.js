@@ -61,20 +61,24 @@ export const AddProject = ({ shouldShow = false }) => {
           </span>
         </div>
       )}
-      <span className="add-project__plus">+</span>
-      <span
-        aria-label="Add Project"
-        data-testid="add-project-action"
-        className="add-project__text"
-        onClick={() => setShow(!show)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") setShow(!show);
-        }}
-        role="button"
-        tabIndex={0}
-      >
-        Add Project
-      </span>
+      {!show && (
+        <>
+          <span className="add-project__plus">+</span>
+          <span
+            aria-label="Add Project"
+            data-testid="add-project-action"
+            className="add-project__text"
+            onClick={() => setShow(true)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") setShow(true);
+            }}
+            role="button"
+            tabIndex={0}
+          >
+            Add Project
+          </span>
+        </>
+      )}
     </div>
   );
 };
