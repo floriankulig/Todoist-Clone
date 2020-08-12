@@ -119,6 +119,7 @@ export const AddTask = ({
             className="add-task__content"
             aria-label="Enter your task"
             data-testid="add-task-content"
+            placeholder="Name your task"
             type="text"
             value={task}
             onChange={(e) => setTask(e.target.value)}
