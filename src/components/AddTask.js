@@ -58,7 +58,7 @@ export const AddTask = ({
       className={showQuickAddTask ? "add-task add-task__overlay" : "add-task"}
       data-testid="add-task-comp"
     >
-      {showAddTaskMain && (
+      {showAddTaskMain && !showMain && !showQuickAddTask && (
         <div
           className="add-task__shallow"
           data-testid="show-main-action"
