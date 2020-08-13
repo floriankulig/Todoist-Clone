@@ -849,7 +849,8 @@ $darkmode-transition: background-color 0.25s ease-out;
       margin-bottom: 20px;
     }
 
-    &__name {
+    &__name,
+    &__content {
       background-color: $darkmode-text !important;
     }
 
@@ -885,6 +886,14 @@ $darkmode-transition: background-color 0.25s ease-out;
 
       span {
         color: $darkmode-text;
+      }
+      
+    .add-task {
+      &__project,
+      &__date {
+        svg {
+          color: $darkmode-svg;
+        }
       }
     }
   }
