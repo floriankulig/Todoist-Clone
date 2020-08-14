@@ -887,12 +887,13 @@ $darkmode-transition: background-color 0.25s ease-out;
       span {
         color: $darkmode-text;
       }
-      
-    .add-task {
-      &__project,
-      &__date {
-        svg {
-          color: $darkmode-svg;
+
+      .add-task {
+        &__project,
+        &__date {
+          svg {
+            color: $darkmode-svg;
+          }
         }
       }
     }
