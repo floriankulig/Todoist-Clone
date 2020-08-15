@@ -33,5 +33,3 @@ export const App = () => {
     </SelectedProjectProvider>
   );
 };
-
-export default App;
