@@ -615,32 +615,36 @@ header {
   }
 }
 
-.add-task__shallow,
+.add-task,
 .add-project {
-  @include no-select;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
+  &__shallow {
+    @include no-select;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
 
-.add-task__plus,
-.add-project__plus {
-  color: #dd4b39;
-  font-size: 18px;
-  padding: 0px 5px;
-  border-radius: 25%;
-  transition: background-color 0.25s ease;
+  &__plus {
+    color: #dd4b39;
+    font-size: 18px;
+    padding: 0px 5px;
+    border-radius: 25%;
+    transition: background-color 0.25s ease;
 
-  &:hover {
-    background-color: rgba(175, 175, 175, 0.2);
+    &:hover {
+      background-color: rgba(175, 175, 175, 0.2);
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    color: #545454;
+    font-size: 14px;
+    margin-left: 7px;
   }
 }
 
-.add-task__text,
-.add-project__text {
-  display: inline-block;
-  color: #545454;
-  font-size: 14px;
-  margin-left: 7px;
+.add-project {
+  margin-left: 8px;
 }
 
 /* Task Date
@@ -701,7 +705,6 @@ header {
 /* Add Project
      ============================================ */
 .add-project {
-  padding-left: 13px;
   padding-right: 20px;
   margin-top: 40px;
 
@@ -754,7 +757,7 @@ $darkmode-transition: background-color 0.25s ease-out;
 
   //SIDEBAR
   .sidebar {
-    background-color: $darkmode-secondary-light;
+    background-color: $darkmode-secondary;
     color: $darkmode-text;
     transition: $darkmode-transition;
     border-right: none;
@@ -780,14 +783,14 @@ $darkmode-transition: background-color 0.25s ease-out;
         &:nth-child(1) {
           &.active,
           &:hover {
-            background-color: $darkmode-primary;
+            background-color: $darkmode-secondary-light;
             border-radius: 20px 0px 0px 0px;
           }
         }
         &:nth-child(2) {
           &.active,
           &:hover {
-            background-color: $darkmode-primary;
+            background-color: $darkmode-secondary-light;
             border-radius: 0;
           }
         }
@@ -795,7 +798,7 @@ $darkmode-transition: background-color 0.25s ease-out;
         &:nth-child(3) {
           &.active,
           &:hover {
-            background-color: $darkmode-primary;
+            background-color: $darkmode-secondary-light;
             border-radius: 0px 0px 0px 20px;
           }
         }
@@ -819,7 +822,7 @@ $darkmode-transition: background-color 0.25s ease-out;
 
       &.active,
       &:hover {
-        background-color: $darkmode-primary;
+        background-color: $darkmode-secondary-light;
         border-radius: 0;
       }
 
@@ -829,7 +832,7 @@ $darkmode-transition: background-color 0.25s ease-out;
         border-radius: 20px 0px 0px 0px;
         &.active,
         &:hover {
-          background-color: $darkmode-primary;
+          background-color: $darkmode-secondary-light;
         }
       }
       &:last-of-type {
@@ -837,7 +840,7 @@ $darkmode-transition: background-color 0.25s ease-out;
         border-radius: 0px 0px 0px 20px;
         &.active,
         &:hover {
-          background-color: $darkmode-primary;
+          background-color: $darkmode-secondary-light;
         }
       }
     }
@@ -847,6 +850,15 @@ $darkmode-transition: background-color 0.25s ease-out;
   .add-task {
     &__input {
       margin-bottom: 20px;
+    }
+
+    &__main,
+    &__input {
+      background-color: $darkmode-primary-light;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 1px 5px 25px rgba(0, 0, 0, 0.3),
+        -5px -5px 25px rgba(255, 255, 255, 0.15);
     }
 
     &__name,
@@ -866,9 +878,17 @@ $darkmode-transition: background-color 0.25s ease-out;
     &__text {
       color: $darkmode-text;
     }
+
     &__plus {
       &:hover {
         background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    &__project,
+    &__date {
+      svg {
+        color: $darkmode-svg;
       }
     }
   }
@@ -876,8 +896,9 @@ $darkmode-transition: background-color 0.25s ease-out;
   //TASKS
   .tasks {
     border-right-color: $darkmode-secondary;
-    background-color: $darkmode-primary;
+    background-color: $darkmode-secondary-light;
     color: $darkmode-text;
+    transition: $darkmode-transition;
 
     &__list li {
       .checkbox {
@@ -886,15 +907,6 @@ $darkmode-transition: background-color 0.25s ease-out;
 
       span {
         color: $darkmode-text;
-      }
-
-      .add-task {
-        &__project,
-        &__date {
-          svg {
-            color: $darkmode-svg;
-          }
-        }
       }
     }
   }
