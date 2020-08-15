@@ -134,6 +134,14 @@ $generic-bg: #db4c3f;
   }
 }
 
+/* Animations
+     ============================================ */
+@keyframes slideIn {
+  to {
+    transform: translateX(0px);
+  }
+}
+
 /* Header
      ============================================ */
 header {
@@ -265,6 +273,9 @@ header {
   }
 
   &__project {
+    transform: translateX(275px);
+    animation: slideIn forwards 0.25s ease;
+    animation-delay: 0.1s;
     cursor: pointer;
 
     div:nth-child(1) {
@@ -368,6 +379,8 @@ header {
   }
 
   &__generic {
+    transform: translateX(150px);
+    animation: slideIn forwards 0.4s ease;
     li {
       list-style-type: none;
       color: #333;
