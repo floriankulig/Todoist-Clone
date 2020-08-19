@@ -26,7 +26,6 @@ export const Header = ({ darkMode, setDarkMode }) => {
                   setShowQuickAddTask(true);
                   setShouldShowMain(true);
                 }}
-                role="button"
                 tabIndex={0}
               >
                 +
@@ -36,7 +35,6 @@ export const Header = ({ darkMode, setDarkMode }) => {
               <button
                 data-testid="dark-mode-action"
                 aria-label="Darkmode on/off"
-                role="button"
                 onClick={() => setDarkMode(!darkMode)}
                 onKeyDown={() => setDarkMode(!darkMode)}
               >
