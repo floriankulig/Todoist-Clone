@@ -13,7 +13,7 @@ export const Projects = ({
 
   return (
     projects &&
-    projects.map((project) => (
+    projects.map((project, index) => (
       <li
         key={project.projectId}
         data-doc-id={project.docId}
@@ -23,6 +23,8 @@ export const Projects = ({
             ? "active sidebar__project"
             : "sidebar__project"
         }
+        // add animation delay for every project to animate separatly
+        style={{ animationDelay: `${index * 20}ms` }}
       >
         <div
           role="button"
