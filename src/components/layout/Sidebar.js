@@ -20,6 +20,7 @@ export const Sidebar = () => {
         <li
           data-testid="inbox"
           className={active === "inbox" ? "active" : undefined}
+          style={{ animationDelay: "0ms" }}
         >
           <div
             data-testid="inbox-action"
@@ -44,6 +45,7 @@ export const Sidebar = () => {
         <li
           data-testid="today"
           className={active === "today" ? "active" : undefined}
+          style={{ animationDelay: "20ms" }}
         >
           <div
             data-testid="today-action"
@@ -68,6 +70,7 @@ export const Sidebar = () => {
         <li
           data-testid="next_7"
           className={active === "next_7" ? "active" : undefined}
+          style={{ animationDelay: "40ms" }}
         >
           <div
             data-testid="next_7-action"
