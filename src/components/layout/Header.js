@@ -31,13 +31,13 @@ export const Header = ({ darkMode, setDarkMode }) => {
                 +
               </button>
             </li>
-            <li className="settings__darkmode">
-              <button
-                data-testid="dark-mode-action"
-                aria-label="Darkmode on/off"
-                onClick={() => setDarkMode(!darkMode)}
-                onKeyDown={() => setDarkMode(!darkMode)}
-              >
+            <li
+              onClick={() => setDarkMode(!darkMode)}
+              onKeyDown={() => setDarkMode(!darkMode)}
+              className="settings__darkmode"
+              data-testid="dark-mode-action"
+            >
+              <button aria-label="Darkmode on/off">
                 <FaPizzaSlice />
               </button>
             </li>
