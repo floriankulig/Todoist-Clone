@@ -35,8 +35,8 @@ export const Tasks = () => {
       <h2 data-testid="project-name">{projectName}</h2>
 
       <ul className="tasks__list">
-        {tasks.map((task) => (
-          <li key={`${task.id}`}>
+        {tasks.map((task, index) => (
+          <li key={`${task.id}`} style={{ animationDelay: `${index * 40}ms` }}>
             <Checkbox id={task.id} taskDesc={task.task} />
             <span>{task.task}</span>
           </li>

@@ -142,6 +142,14 @@ $generic-bg: #db4c3f;
   }
 }
 
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+    transform: scale(1);
+  }
+}
+
 /* Header
      ============================================ */
 header {
@@ -509,6 +517,10 @@ header {
     font-size: 15px;
     list-style-type: none;
     border-bottom: 1px solid #f0f0f0;
+    opacity: 0.1;
+    transform: translateY(-50px);
+    transform: scale(0.5);
+    animation: fadeIn forwards 0.2s ease;
 
     .checkbox-holder {
       margin-right: 20px;
