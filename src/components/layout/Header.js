@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaPizzaSlice, FaUserAlt } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
+import { WiDaySunny, WiMoonWaxingCrescent2 } from "react-icons/wi";
 import { AddTask } from "../AddTask";
 
 export const Header = ({ darkMode, setDarkMode }) => {
@@ -56,7 +57,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
               data-testid="dark-mode-action"
             >
               <button aria-label="Darkmode on/off">
-                <FaPizzaSlice />
+                {darkMode ? <WiDaySunny /> : <WiMoonWaxingCrescent2 />}
               </button>
             </li>
           </ul>
