@@ -199,7 +199,7 @@ header {
       }
 
       &.settings {
-        grid-area: 1 / 2;
+        grid-area: 1 / 3;
         text-align: right;
 
         ul {
@@ -223,13 +223,36 @@ header {
           }
 
           &.settings__add {
-            margin-right: 15px;
+            margin-right: 10px;
             font-size: 30px;
 
             button {
               @include transparent-button();
               color: white;
               cursor: pointer;
+            }
+          }
+
+          &.settings__user-menu {
+            margin-right: 10px;
+
+            button {
+              @include transparent-button();
+              color: white;
+              cursor: pointer;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              svg {
+                width: 20px;
+                height: 20px;
+              }
+            }
+
+            &-list {
+              li button {
+                @include btn("50px");
+              }
             }
           }
 
