@@ -43,11 +43,13 @@ export const Header = ({ darkMode, setDarkMode }) => {
                 <FaUserAlt />
               </button>
               {userMenuOpen && (
-                <ul className="settings__user-menu-list">
-                  <li>
-                    <button type="submit">Log Out</button>
-                  </li>
-                </ul>
+                <div className="settings__user-menu-list">
+                  <ul>
+                    <li>
+                      <button type="submit">Log Out</button>
+                    </li>
+                  </ul>
+                </div>
               )}
             </li>
             <li
