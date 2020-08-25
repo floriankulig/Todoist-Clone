@@ -7,7 +7,7 @@ export const SignUpForm = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="login-form">
+    <div className="signup-form">
       <div className="input-container">
         <input
           placeholder="Username"
