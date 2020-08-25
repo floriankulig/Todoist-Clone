@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt, FaUserAltSlash } from "react-icons/fa";
 import { WiDaySunny, WiMoonWaxingCrescent2 } from "react-icons/wi";
 import { AddTask } from "../AddTask";
 
@@ -33,7 +33,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
                 +
               </button>
             </li>
-            <li className="settings__user-menu">
+            <li className={userMenuOpen ? "settings__user-menu active" : "settings__user-menu"}>
               <button
                 data-testid="user-menu-action"
                 aria-label="User Menu on/off"
@@ -46,7 +46,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
                 <div className="settings__user-menu-list">
                   <ul>
                     <li>
-                      <button type="submit">Log Out</button>
+                      <button type="submit"> <FaUserAltSlash /> Log Out</button>
                     </li>
                   </ul>
                 </div>
