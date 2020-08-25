@@ -217,7 +217,8 @@ header {
           vertical-align: middle;
           float: left;
 
-          &:hover {
+          &:hover,
+          &.active {
             border-radius: 3px;
             background-color: rgba(255, 255, 255, 0.2);
           }
@@ -248,12 +249,6 @@ header {
                 height: 20px;
               }
             }
-
-            &-list {
-              li button {
-                @include btn("50px");
-              }
-            }
           }
 
           &.settings__darkmode {
@@ -266,8 +261,55 @@ header {
               display: flex;
 
               svg {
-                width: 35px;
-                height: 35px;
+                width: 30px;
+                height: 30px;
+              }
+            }
+          }
+        }
+
+        &__user-menu-list {
+          position: relative;
+          transform: translateX(-40px);
+
+          ul {
+            position: absolute;
+            background-color: $generic-bg;
+            margin-top: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: left;
+            border-radius: 0 0 5px 5px;
+
+            li {
+              width: fit-content;
+              height: fit-content;
+              display: inline-block;
+              white-space: nowrap;
+
+              button {
+                padding: 10px 25px;
+                transition: scale 0.1s ease-out;
+
+                svg {
+                  // for svgs later
+                  width: 15px;
+                  height: 15px;
+                  margin-right: 10px;
+                }
+              }
+
+              &:hover {
+                background-color: $generic-bg;
+
+                button {
+                  scale: 1.1;
+                }
+              }
+
+              &:last-child {
+                margin-bottom: 10px;
               }
             }
           }
