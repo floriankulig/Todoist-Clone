@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 
-export const SignUpForm = ({ open, setOpen }) => {
+export const SignUpForm = ({ setOpen }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +14,7 @@ export const SignUpForm = ({ open, setOpen }) => {
           className="signup-form__cancel-x"
           onClick={() => setOpen(false)}
           onKeyDown={() => setOpen(false)}
+          aria-label="Close SignUp Form"
         >
           X
         </span>
@@ -32,7 +33,7 @@ export const SignUpForm = ({ open, setOpen }) => {
             placeholder="Email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            type="text"
+            type="email"
           />
           <div className="bg"></div>
         </div>
@@ -45,7 +46,7 @@ export const SignUpForm = ({ open, setOpen }) => {
           />
           <div className="bg"></div>
         </div>
-        <button tabIndex={0} className="submit-button">
+        <button tabIndex={0} type="submit" className="submit-button">
           Submit
         </button>
       </form>
