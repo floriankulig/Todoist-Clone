@@ -835,6 +835,13 @@ header {
       font-size: 16px;
       margin-top: 10px;
     }
+
+    .submit-button {
+      @include btn(75px);
+      float: right;
+      margin: 0;
+      margin-top: 20px;
+    }
   }
 }
 
