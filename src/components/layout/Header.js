@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaUserAlt, FaUserAltSlash } from "react-icons/fa";
 import { WiDaySunny, WiMoonWaxingCrescent2 } from "react-icons/wi";
 import { AddTask } from "../AddTask";
+import { SignUpForm } from "../auth/SignUpForm";
 
 export const Header = ({ darkMode, setDarkMode }) => {
   const [shouldShowMain, setShouldShowMain] = useState(false);
@@ -33,7 +34,13 @@ export const Header = ({ darkMode, setDarkMode }) => {
                 +
               </button>
             </li>
-            <li className={userMenuOpen ? "settings__user-menu active" : "settings__user-menu"}>
+            <li
+              className={
+                userMenuOpen
+                  ? "settings__user-menu active"
+                  : "settings__user-menu"
+              }
+            >
               <button
                 data-testid="user-menu-action"
                 aria-label="User Menu on/off"
@@ -42,15 +49,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
               >
                 <FaUserAlt />
               </button>
-              {userMenuOpen && (
-                <div className="settings__user-menu-list">
-                  <ul>
-                    <li>
-                      <button type="submit"> <FaUserAltSlash /> Log Out</button>
-                    </li>
-                  </ul>
-                </div>
-              )}
+              {userMenuOpen && <SignUpForm setOpen={setUserMenuOpen} />}
             </li>
             <li
               onClick={() => setDarkMode(!darkMode)}
