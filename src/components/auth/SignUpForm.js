@@ -8,10 +8,10 @@ export const SignUpForm = ({ setOpen }) => {
 
   return (
     <div className="form-overlay">
-      <form method="POST" className="signup-form">
+      <form method="POST" className="form">
         <h1 className="header">Sign Up</h1>
         <span
-          className="signup-form__cancel-x"
+          className="form__cancel-x"
           onClick={() => setOpen(false)}
           onKeyDown={() => setOpen(false)}
           aria-label="Close SignUp Form"
@@ -25,7 +25,7 @@ export const SignUpForm = ({ setOpen }) => {
             onChange={(event) => setName(event.target.value)}
             type="text"
           />
-          {/* <FaUserAlt /> */}
+          <FaUserAlt />
           <div className="bg"></div>
         </div>
         <div className="input-container">
