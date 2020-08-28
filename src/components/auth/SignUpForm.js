@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaUserAlt } from "react-icons/fa";
+import { FaRegUser } from "react-icons/fa";
+import { AiOutlineMail, AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
 
 export const SignUpForm = ({ setOpen }) => {
   const [name, setName] = useState("");
@@ -25,7 +26,7 @@ export const SignUpForm = ({ setOpen }) => {
             onChange={(event) => setName(event.target.value)}
             type="text"
           />
-          <FaUserAlt />
+          <FaRegUser />
           <div className="bg"></div>
         </div>
         <div className="input-container">
@@ -35,6 +36,7 @@ export const SignUpForm = ({ setOpen }) => {
             onChange={(event) => setEmail(event.target.value)}
             type="email"
           />
+          <AiOutlineMail />
           <div className="bg"></div>
         </div>
         <div className="input-container">
@@ -44,6 +46,7 @@ export const SignUpForm = ({ setOpen }) => {
             onChange={(event) => setPassword(event.target.value)}
             type="password"
           />
+          <AiFillEyeInvisible />
           <div className="bg"></div>
         </div>
         <button tabIndex={0} type="submit" className="submit-button">
