@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Header } from "./components/layout/Header";
 import { Content } from "./components/layout/Content";
-import { ProjectsProvider, SelectedProjectProvider } from "./context";
+import {
+  ProjectsProvider,
+  SelectedProjectProvider,
+  UserProvider,
+} from "./context";
 
 export const App = () => {
   const getSavedMode = () => {
@@ -20,16 +24,18 @@ export const App = () => {
   }, [darkMode]);
 
   return (
-    <SelectedProjectProvider>
-      <ProjectsProvider>
-        <main
-          data-testid="application"
-          className={darkMode ? "darkmode" : undefined}
-        >
-          <Header darkMode={darkMode} setDarkMode={setDarkMode} />
-          <Content />
-        </main>
-      </ProjectsProvider>
-    </SelectedProjectProvider>
+    <UserProvider>
+      <SelectedProjectProvider>
+        <ProjectsProvider>
+          <main
+            data-testid="application"
+            className={darkMode ? "darkmode" : undefined}
+          >
+            <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+            <Content />
+          </main>
+        </ProjectsProvider>
+      </SelectedProjectProvider>
+    </UserProvider>
   );
 };
