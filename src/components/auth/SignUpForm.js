@@ -8,15 +8,14 @@ export const SignUpForm = ({ setOpen }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignUp = useCallback(async event => {
+  const handleSignUp = async event => {
     event.preventDefault();
     await firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .catch(error => alert(error))
-
-    setOpen(false)
-  })
+      // .then(setOpen(false))
+      .catch(error => { alert(error); setOpen(true) })
+  }
 
   return (
     <div className="form-overlay">
