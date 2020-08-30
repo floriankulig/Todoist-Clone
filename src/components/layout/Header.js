@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaUserAlt, FaUserAltSlash } from "react-icons/fa";
 import { WiDaySunny, WiMoonWaxingCrescent2 } from "react-icons/wi";
 import { AddTask } from "../AddTask";
-import { SignUpForm } from "../auth/SignUpForm";
+import { AuthForm } from "../auth/AuthForm";
 
 export const Header = ({ darkMode, setDarkMode }) => {
   const [shouldShowMain, setShouldShowMain] = useState(false);
@@ -49,7 +49,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
               >
                 <FaUserAlt />
               </button>
-              {userMenuOpen && <SignUpForm setOpen={setUserMenuOpen} />}
+              {userMenuOpen && <AuthForm setOpen={setUserMenuOpen} />}
             </li>
             <li
               onClick={() => setDarkMode(!darkMode)}

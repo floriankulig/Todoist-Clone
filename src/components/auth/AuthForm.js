@@ -1,26 +1,33 @@
 import React, { useState, useCallback } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { AiOutlineMail, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import firebase from "firebase"
+import firebase from "firebase";
 
-export const SignUpForm = ({ setOpen }) => {
+export const AuthForm = ({ setOpen, type = "login" }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignUp = async event => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
     await firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       // .then(setOpen(false))
-      .catch(error => { alert(error); setOpen(true) })
-  }
+      .catch((error) => {
+        alert(error);
+        setOpen(true);
+      });
+  };
 
   return (
     <div className="form-overlay">
       <form method="POST" onSubmit={handleSignUp} className="form">
-        <h1 className="header">Sign Up</h1>
+        {type === "login" ? (
+          <h1 className="header">Log In</h1>
+        ) : type === "signup" ? (
+          <h1 className="header">Sign Up</h1>
+        ) : undefined}
         <span
           className="form__cancel-x"
           onClick={() => setOpen(false)}
@@ -29,17 +36,19 @@ export const SignUpForm = ({ setOpen }) => {
         >
           X
         </span>
-        {/* <div className="input-container">
-          <input
-          tabIndex={0}
-            placeholder="Username"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            type="text"
-          />
-          <FaRegUser />
-          <div className="bg"></div>
-        </div> */}
+        {type === "signup" ? (
+          <div className="input-container">
+            <input
+              tabIndex={0}
+              placeholder="Username"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              type="text"
+            />
+            <FaRegUser />
+            <div className="bg"></div>
+          </div>
+        ) : undefined}
         <div className="input-container">
           <input
             tabIndex={0}
@@ -62,9 +71,15 @@ export const SignUpForm = ({ setOpen }) => {
           <AiFillEyeInvisible />
           <div className="bg"></div>
         </div>
-        <button tabIndex={0} type="submit" className="submit-button">
-          Submit
-        </button>
+        {type === "login" ? (
+          <button tabIndex={0} type="submit" className="submit-button">
+            Log In
+          </button>
+        ) : type === "signup" ? (
+          <button tabIndex={0} type="submit" className="submit-button">
+            Sign Up
+          </button>
+        ) : undefined}
       </form>
     </div>
   );
