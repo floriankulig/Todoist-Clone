@@ -31,6 +31,7 @@ export const SignUpForm = ({ setOpen }) => {
         </span>
         {/* <div className="input-container">
           <input
+          tabIndex={0}
             placeholder="Username"
             value={name}
             onChange={(event) => setName(event.target.value)}
@@ -41,6 +42,7 @@ export const SignUpForm = ({ setOpen }) => {
         </div> */}
         <div className="input-container">
           <input
+            tabIndex={0}
             placeholder="Email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -51,6 +53,7 @@ export const SignUpForm = ({ setOpen }) => {
         </div>
         <div className="input-container">
           <input
+            tabIndex={0}
             placeholder="Password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
