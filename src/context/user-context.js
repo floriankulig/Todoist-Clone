@@ -8,14 +8,17 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((userAuth) => {
-      setUser(userAuth);
+      if (user) {
+        setUser(userAuth);
+      } else {
+      }
       console.log(user);
     });
-  }, []);
+  });
 
   return (
     <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
   );
 };
 
-export const useUserValue = () => useContext(UserContext);
+export const useAuthValue = () => useContext(UserContext);

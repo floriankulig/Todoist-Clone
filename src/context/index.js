@@ -10,7 +10,7 @@ import {
   useSelectedProjectValue,
 } from "./selected-project-context";
 
-import { UserContext, UserProvider, useUserValue } from "./user-context";
+import { UserContext, UserProvider, useAuthValue } from "./user-context";
 
 export {
   ProjectsContext,
@@ -21,5 +21,5 @@ export {
   useSelectedProjectValue,
   UserContext,
   UserProvider,
-  useUserValue,
+  useAuthValue,
 };
