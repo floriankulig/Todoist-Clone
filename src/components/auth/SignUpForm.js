@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { FaRegUser } from "react-icons/fa";
-import { AiOutlineMail, AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
+import { AiOutlineMail, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import firebase from "firebase"
 
 export const SignUpForm = ({ setOpen }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleSignUp = useCallback(async event => {
+    event.preventDefault();
+    await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(error => alert(error))
+
+    setOpen(false)
+  })
+
   return (
     <div className="form-overlay">
-      <form method="POST" className="form">
+      <form method="POST" onSubmit={handleSignUp} className="form">
         <h1 className="header">Sign Up</h1>
         <span
           className="form__cancel-x"
@@ -19,7 +30,7 @@ export const SignUpForm = ({ setOpen }) => {
         >
           X
         </span>
-        <div className="input-container">
+        {/* <div className="input-container">
           <input
             placeholder="Username"
             value={name}
@@ -28,7 +39,7 @@ export const SignUpForm = ({ setOpen }) => {
           />
           <FaRegUser />
           <div className="bg"></div>
-        </div>
+        </div> */}
         <div className="input-container">
           <input
             placeholder="Email"
