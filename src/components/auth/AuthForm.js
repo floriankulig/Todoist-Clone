@@ -48,6 +48,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
               placeholder="Username"
               value={username}
               onChange={(event) => setUsername(event.target.value)}
+              required
               type="text"
             />
             <FaRegUser />
@@ -59,6 +60,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
             tabIndex={0}
             placeholder="Email"
             value={email}
+            required
             onChange={(event) => setEmail(event.target.value)}
             type="email"
           />
@@ -70,6 +72,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
             tabIndex={0}
             placeholder="Password"
             value={password}
+            required
             onChange={(event) => setPassword(event.target.value)}
             type="password"
           />
