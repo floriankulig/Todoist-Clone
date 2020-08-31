@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { AiOutlineMail, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import firebase from "firebase";
-import { useAuthValue } from "../../context";
 
 export const AuthForm = ({ setOpen, type = "signup" }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const user = useAuthValue();
 
   const handleSubmit = (event) => {
     event.preventDefault();
