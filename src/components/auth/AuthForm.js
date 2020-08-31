@@ -1,28 +1,35 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { AiOutlineMail, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import firebase from "firebase";
+import { useAuthValue } from "../../context";
 
-export const AuthForm = ({ setOpen, type = "login" }) => {
-  const [name, setName] = useState("");
+export const AuthForm = ({ setOpen, type = "signup" }) => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const user = useAuthValue();
 
-  const handleSignUp = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    await firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      // .then(setOpen(false))
-      .catch((error) => {
-        alert(error);
-        setOpen(true);
-      });
+    if (type === "signup") {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then((authUser) => {
+          setOpen(false);
+          authUser.user.updateProfile({ displayName: username });
+        })
+        .catch((error) => {
+          // TODO: Provide Error Message underneath inputs by adding state
+          alert(error.message);
+        });
+    }
   };
 
   return (
     <div className="form-overlay">
-      <form method="POST" onSubmit={handleSignUp} className="form">
+      <form method="POST" onSubmit={handleSubmit} className="form">
         {type === "login" ? (
           <h1 className="header">Log In</h1>
         ) : type === "signup" ? (
@@ -41,8 +48,8 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
             <input
               tabIndex={0}
               placeholder="Username"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
               type="text"
             />
             <FaRegUser />
