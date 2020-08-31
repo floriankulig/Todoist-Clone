@@ -7,6 +7,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,8 +20,8 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
           authUser.user.updateProfile({ displayName: username });
         })
         .catch((error) => {
-          // TODO: Provide Error Message underneath inputs by adding state
-          alert(error.message);
+          setErrorMessage(error.message);
+          // alert(error.message);
         });
     }
   };
@@ -79,6 +80,9 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
           <AiFillEyeInvisible />
           <div className="bg"></div>
         </div>
+        {errorMessage && (
+          <p className="error-message">{errorMessage}</p>
+        )}
         {type === "login" ? (
           <button tabIndex={0} type="submit" className="submit-button">
             Log In
