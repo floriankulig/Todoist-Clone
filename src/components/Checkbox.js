@@ -3,9 +3,7 @@ import { firebase } from "../firebase";
 
 export const Checkbox = ({ id, taskDesc }) => {
   const archiveTask = () => {
-    firebase.firestore().collection("tasks").doc(id).update({
-      archived: true,
-    });
+    firebase.firestore().collection("tasks").doc(id).delete();
   };
 
   return (
