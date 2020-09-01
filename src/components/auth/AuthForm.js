@@ -44,45 +44,43 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
             X
           </span>
         </div>
-        <div className="form__inputs">
-          {type === "signup" ? (
-            <div className="input-container">
-              <input
-                tabIndex={0}
-                placeholder="Username"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-                required
-                type="text"
-              />
-              <FaRegUser />
-              <div className="bg"></div>
-            </div>
-          ) : undefined}
+        {type === "signup" ? (
           <div className="input-container">
             <input
               tabIndex={0}
-              placeholder="Email"
-              value={email}
+              placeholder="Username"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
               required
-              onChange={(event) => setEmail(event.target.value)}
-              type="email"
+              type="text"
             />
-            <AiOutlineMail />
+            <FaRegUser />
             <div className="bg"></div>
           </div>
-          <div className="input-container">
-            <input
-              tabIndex={0}
-              placeholder="Password"
-              value={password}
-              required
-              onChange={(event) => setPassword(event.target.value)}
-              type="password"
-            />
-            <AiFillEyeInvisible />
-            <div className="bg"></div>
-          </div>
+        ) : undefined}
+        <div className="input-container">
+          <input
+            tabIndex={0}
+            placeholder="Email"
+            value={email}
+            required
+            onChange={(event) => setEmail(event.target.value)}
+            type="email"
+          />
+          <AiOutlineMail />
+          <div className="bg"></div>
+        </div>
+        <div className="input-container">
+          <input
+            tabIndex={0}
+            placeholder="Password"
+            value={password}
+            required
+            onChange={(event) => setPassword(event.target.value)}
+            type="password"
+          />
+          <AiFillEyeInvisible />
+          <div className="bg"></div>
         </div>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         {type === "login" ? (
