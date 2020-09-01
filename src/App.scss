@@ -145,7 +145,14 @@ $generic-bg: #db4c3f;
 @keyframes fadeIn {
   to {
     opacity: 1;
-    transform: translate(0px);
+    transform: translateY(0px);
+    transform: scale(1);
+  }
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
     transform: scale(1);
   }
 }
@@ -665,9 +672,6 @@ header {
 
   &__main {
     position: relative;
-    opacity: 0.1;
-    transform: scale(0.5);
-    animation: fadeIn forwards 0.25s ease;
   }
 
   &__project,
@@ -938,8 +942,8 @@ header {
   &__input {
     margin-bottom: 20px;
     opacity: 0.1;
-    transform: scale(0.5);
-    animation: fadeIn forwards 0.25s ease;
+    transform: scale(0.3);
+    animation: popIn forwards 0.25s ease;
   }
 
   &__name {
