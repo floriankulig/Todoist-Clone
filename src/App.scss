@@ -828,19 +828,24 @@ header {
     transform: translate(-50%, -50%);
     color: black;
 
-    .header {
-      font-size: 20px;
-      margin-bottom: 20px;
-      float: left;
-    }
+    &__top-bar {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: 30px;
 
-    &__cancel-x {
-      cursor: pointer;
-      color: gray;
-      float: right;
-      font-weight: bold;
-      font-size: 16px;
-      margin-top: 16px;
+      .header {
+        font-size: 20px;
+        margin: auto 0px;
+      }
+
+      .form__cancel-x {
+        cursor: pointer;
+        color: gray;
+        font-weight: bold;
+        font-size: 16px;
+        margin: auto 0px;
+      }
     }
 
     .input-container {
@@ -851,7 +856,7 @@ header {
       padding: 5px;
       border-radius: 12px;
       position: relative;
-      width: 240px;
+      width: 100% !important;
       margin-top: 15px;
 
       &:first-of-type {
