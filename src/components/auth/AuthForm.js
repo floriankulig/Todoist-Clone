@@ -80,9 +80,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
           <AiFillEyeInvisible />
           <div className="bg"></div>
         </div>
-        {errorMessage && (
-          <p className="error-message">{errorMessage}</p>
-        )}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         {type === "login" ? (
           <button tabIndex={0} type="submit" className="submit-button">
             Log In
