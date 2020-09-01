@@ -861,6 +861,10 @@ header {
       width: 100% !important;
       margin-top: 15px;
 
+      transform: scale(0.5);
+      opacity: 0.1;
+      animation: popIn 0.25s forwards ease;
+
       &:first-of-type {
         margin-top: 60px;
       }
@@ -929,6 +933,8 @@ header {
       border: 1px solid red;
       border-radius: 5px;
       margin-bottom: 0px;
+      transform: scale(0.5);
+      animation: popIn 0.25s forwards ease;
     }
 
     .submit-button {
