@@ -27,7 +27,7 @@ export const Tasks = () => {
   }
 
   useEffect(() => {
-    document.title = `${projectName}: Todolist`;
+    document.title = `${projectName}: Todoist`;
   });
 
   return (
