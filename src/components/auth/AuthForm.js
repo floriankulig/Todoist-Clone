@@ -29,56 +29,60 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
   return (
     <div className="form-overlay">
       <form method="POST" onSubmit={handleSubmit} className="form">
-        {type === "login" ? (
-          <h1 className="header">Log In</h1>
-        ) : type === "signup" ? (
-          <h1 className="header">Sign Up</h1>
-        ) : undefined}
-        <span
-          className="form__cancel-x"
-          onClick={() => setOpen(false)}
-          onKeyDown={() => setOpen(false)}
-          aria-label="Close SignUp Form"
-        >
-          X
-        </span>
-        {type === "signup" ? (
+        <div className="form__top-bar">
+          {type === "login" ? (
+            <h1 className="header">Log In</h1>
+          ) : type === "signup" ? (
+            <h1 className="header">Sign Up</h1>
+          ) : undefined}
+          <span
+            className="form__cancel-x"
+            onClick={() => setOpen(false)}
+            onKeyDown={() => setOpen(false)}
+            aria-label="Close SignUp Form"
+          >
+            X
+          </span>
+        </div>
+        <div className="form__inputs">
+          {type === "signup" ? (
+            <div className="input-container">
+              <input
+                tabIndex={0}
+                placeholder="Username"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+                required
+                type="text"
+              />
+              <FaRegUser />
+              <div className="bg"></div>
+            </div>
+          ) : undefined}
           <div className="input-container">
             <input
               tabIndex={0}
-              placeholder="Username"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
+              placeholder="Email"
+              value={email}
               required
-              type="text"
+              onChange={(event) => setEmail(event.target.value)}
+              type="email"
             />
-            <FaRegUser />
+            <AiOutlineMail />
             <div className="bg"></div>
           </div>
-        ) : undefined}
-        <div className="input-container">
-          <input
-            tabIndex={0}
-            placeholder="Email"
-            value={email}
-            required
-            onChange={(event) => setEmail(event.target.value)}
-            type="email"
-          />
-          <AiOutlineMail />
-          <div className="bg"></div>
-        </div>
-        <div className="input-container">
-          <input
-            tabIndex={0}
-            placeholder="Password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-            type="password"
-          />
-          <AiFillEyeInvisible />
-          <div className="bg"></div>
+          <div className="input-container">
+            <input
+              tabIndex={0}
+              placeholder="Password"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+              type="password"
+            />
+            <AiFillEyeInvisible />
+            <div className="bg"></div>
+          </div>
         </div>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         {type === "login" ? (
