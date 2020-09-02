@@ -21,7 +21,6 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
         })
         .catch((error) => {
           setErrorMessage(error.message);
-          // alert(error.message);
         });
     }
   };
