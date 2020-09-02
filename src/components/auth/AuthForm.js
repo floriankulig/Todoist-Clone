@@ -22,6 +22,12 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
         .catch((error) => {
           setErrorMessage(error.message);
         });
+    } else if (type === "login") {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(setOpen(false))
+        .catch((error) => setErrorMessage(error.message));
     }
   };
 
