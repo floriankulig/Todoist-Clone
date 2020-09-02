@@ -3,7 +3,7 @@ import { FaRegUser } from "react-icons/fa";
 import { AiOutlineMail, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import firebase from "firebase";
 
-export const AuthForm = ({ setOpen, type = "signup" }) => {
+export const AuthForm = ({ setOpen, type = "login" }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +26,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
       firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
-        .then(setOpen(false))
+        .then(() => setOpen(false))
         .catch((error) => setErrorMessage(error.message));
     }
   };
