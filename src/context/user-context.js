@@ -10,9 +10,11 @@ export const UserProvider = ({ children }) => {
     const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
       if (authUser) {
         setUser(authUser);
+        console.log("User signed In: ");
         console.log(user);
       } else {
         setUser(null);
+        console.log("No User signed In");
       }
     });
 
