@@ -1108,8 +1108,7 @@ $generic-bg: #ec625f;
     &__main,
     &__input {
       background-color: $darkmode-primary-light;
-
-      border-radius: 10px;
+      border-radius: 15px;
 
       .header,
       .add-task__cancel-x {
