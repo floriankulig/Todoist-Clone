@@ -712,6 +712,11 @@ header {
 
 .add-task,
 .add-project {
+  &__main,
+  &__input {
+    padding: 15px;
+  }
+
   &__shallow {
     @include no-select;
     cursor: pointer;
@@ -1103,7 +1108,7 @@ $generic-bg: #ec625f;
     &__main,
     &__input {
       background-color: $darkmode-primary-light;
-      padding: 15px;
+
       border-radius: 10px;
 
       .header,
