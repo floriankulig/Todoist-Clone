@@ -981,13 +981,14 @@ header {
 /* Darkmode
      ============================================ */
 $darkmode-header: rgb(49, 49, 49); // pure black
-$darkmode-primary: rgb(53, 47, 68); // blue-purple-ish
-$darkmode-primary-light: rgb(92, 84, 112);
-$darkmode-secondary: rgb(48, 42, 54); // deep blue
-$darkmode-secondary-light: rgb(55, 49, 61);
+$darkmode-primary: #454545;
+$darkmode-primary-light: #414141;
+$darkmode-secondary: #313131;
+$darkmode-secondary-light: #333333;
 $darkmode-text: rgb(219, 216, 227);
 $darkmode-svg: rgb(200, 200, 200);
 $darkmode-transition: background-color 0.25s ease-out;
+$generic-bg: #ec625f;
 
 .darkmode {
   //BODY
@@ -1012,7 +1013,7 @@ $darkmode-transition: background-color 0.25s ease-out;
     &__generic {
       transition: $darkmode-transition;
       color: $darkmode-text;
-      background-color: $darkmode-primary-light;
+      background-color: $darkmode-primary;
       border-radius: 20px 0px 0px 20px;
 
       li {
@@ -1065,7 +1066,7 @@ $darkmode-transition: background-color 0.25s ease-out;
 
     &__project {
       transition: $darkmode-transition;
-      background-color: $darkmode-primary-light;
+      background-color: $darkmode-primary;
 
       &.active,
       &:hover {
@@ -1075,7 +1076,7 @@ $darkmode-transition: background-color 0.25s ease-out;
 
       //Make sure first and last project have rounded corners
       &:first-of-type {
-        background-color: $darkmode-primary-light;
+        background-color: $darkmode-primary;
         border-radius: 20px 0px 0px 0px;
         &.active,
         &:hover {
@@ -1083,7 +1084,7 @@ $darkmode-transition: background-color 0.25s ease-out;
         }
       }
       &:last-of-type {
-        background-color: $darkmode-primary-light;
+        background-color: $darkmode-primary;
         border-radius: 0px 0px 0px 20px;
         &.active,
         &:hover {
@@ -1103,9 +1104,7 @@ $darkmode-transition: background-color 0.25s ease-out;
     &__input {
       background-color: $darkmode-primary-light;
       padding: 15px;
-      border-radius: 5px;
-      box-shadow: 1px 5px 25px rgba(0, 0, 0, 0.3),
-        -5px -5px 25px rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
 
       .header,
       .add-task__cancel-x {
@@ -1146,7 +1145,8 @@ $darkmode-transition: background-color 0.25s ease-out;
   }
 
   //removes neumorphism from quick add task
-  .add-task__overlay {
+  .add-task__overlay,
+  .form-overlay {
     background: rgba(0, 0, 0, 0.5);
     .add-task__main {
       box-shadow: none;
@@ -1167,6 +1167,32 @@ $darkmode-transition: background-color 0.25s ease-out;
 
       span {
         color: $darkmode-text;
+      }
+    }
+  }
+
+  .form {
+    background-color: $darkmode-primary-light;
+    color: $darkmode-text;
+
+    .header,
+    .form__cancel-x {
+      color: $darkmode-text;
+    }
+
+    .input-container {
+      background-color: $darkmode-text;
+
+      input:focus {
+        & ~ .bg {
+          border: none;
+        }
+      }
+
+      svg {
+        color: black;
+        background-color: $darkmode-text;
+        filter: brightness(1.05);
       }
     }
   }
