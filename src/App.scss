@@ -939,6 +939,7 @@ header {
       border-radius: 5px;
       margin-bottom: 0px;
       transform: scale(0.5);
+      @include no-select();
       animation: popIn 0.25s forwards ease;
     }
 
