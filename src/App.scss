@@ -715,6 +715,8 @@ header {
   &__main,
   &__input {
     padding: 15px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   }
 
   &__shallow {
@@ -1109,7 +1111,7 @@ $generic-bg: #ec625f;
     &__main,
     &__input {
       background-color: $darkmode-primary-light;
-      border-radius: 15px;
+      box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.12);
 
       .header,
       .add-task__cancel-x {
