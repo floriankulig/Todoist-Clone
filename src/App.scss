@@ -832,8 +832,8 @@ header {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 500px;
-    padding: 50px 90px;
+    width: 450px;
+    padding: 50px 75px;
     transform: translate(-50%, -50%);
     color: black;
 
@@ -1111,7 +1111,6 @@ $generic-bg: #ec625f;
     &__main,
     &__input {
       background-color: $darkmode-primary-light;
-      box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.12);
 
       .header,
       .add-task__cancel-x {
