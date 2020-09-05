@@ -81,7 +81,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
           <AiOutlineMail />
           <div className="bg"></div>
         </div>
-        <div className="input-container" style={{ animationDelay: "150ms" }}>
+        <div className="input-container" style={{ animationDelay: "100ms" }}>
           <input
             tabIndex={0}
             placeholder="Password"
@@ -104,7 +104,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
           <div className="bg"></div>
         </div>
         {type === "signup" ? (
-          <div className="input-container" style={{ animationDelay: "250ms" }}>
+          <div className="input-container" style={{ animationDelay: "150ms" }}>
             <input
               tabIndex={0}
               placeholder="Confirm Password"
