@@ -2,16 +2,18 @@ import { useState, useEffect } from "react";
 import moment from "moment";
 import { firebase } from "../firebase";
 import { collatedTasksExist } from "../helpers";
+import { useAuthValue } from "../context";
 
 export const useTasks = (selectedProject) => {
   const [tasks, setTasks] = useState([]);
-  const [archivedTasks, setArchivedTasks] = useState([]);
+
+  const currentUser = useAuthValue();
 
   useEffect(() => {
     let unsubscribe = firebase
       .firestore()
       .collection("tasks")
-      .where("userId", "==", "flou");
+      .where("userId", "==", currentUser.uid);
 
     unsubscribe =
       selectedProject && !collatedTasksExist(selectedProject)
@@ -36,28 +38,28 @@ export const useTasks = (selectedProject) => {
         selectedProject === "NEXT_7"
           ? newTasks.filter(
               (task) =>
-                moment(task.date, "DD-MM-YYYY").diff(moment(), "days") <= 7 &&
-                task.archived !== true
+                moment(task.date, "DD-MM-YYYY").diff(moment(), "days") <= 7
             )
-          : newTasks.filter((task) => task.archived !== true)
+          : newTasks
       );
-      setArchivedTasks(newTasks.filter((task) => task.archived !== false));
     });
 
     return () => unsubscribe();
-  }, [selectedProject]);
+  }, [selectedProject, currentUser]);
 
-  return { tasks, archivedTasks };
+  return { tasks };
 };
 
 export const useProjects = () => {
   const [projects, setProjects] = useState([]);
 
+  const currentUser = useAuthValue();
+
   useEffect(() => {
     firebase
       .firestore()
       .collection("projects")
-      .where("userId", "==", "flou")
+      .where("userId", "==", currentUser.uid)
       .orderBy("projectId")
       .get()
       .then((snapshot) => {
@@ -70,7 +72,7 @@ export const useProjects = () => {
           setProjects(allProjects);
         }
       });
-  }, [projects]);
+  }, [projects, currentUser]);
 
   return { projects, setProjects };
 };
