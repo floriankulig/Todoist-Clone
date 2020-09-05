@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { firebase } from "../firebase";
 import { generatePushId } from "../helpers";
-import { useProjectsValue } from "../context";
+import { useProjectsValue, useAuthValue } from "../context";
 
 export const AddProject = ({ shouldShow = false }) => {
   const [show, setShow] = useState(shouldShow);
@@ -9,6 +9,7 @@ export const AddProject = ({ shouldShow = false }) => {
 
   const projectId = generatePushId();
   const { projects, setProjects } = useProjectsValue();
+  const currentUser = useAuthValue();
 
   const addProject = () =>
     projectName &&
@@ -18,7 +19,7 @@ export const AddProject = ({ shouldShow = false }) => {
       .add({
         projectId,
         name: projectName,
-        userId: "flou",
+        userId: currentUser.uid,
       })
       .then(() => {
         setProjects([...projects]);
