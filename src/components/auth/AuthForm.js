@@ -9,6 +9,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -89,11 +90,15 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
             onChange={(event) => setPassword(event.target.value)}
             type="password"
           />
-          <AiFillEyeInvisible />
+          {showPassword === true ? (
+            <AiFillEyeInvisible onClick={() => setShowPassword(false)} />
+          ) : (
+            <AiFillEye onClick={() => setShowPassword(true)} />
+          )}
           <div className="bg"></div>
         </div>
         {type === "signup" ? (
-          <div className="input-container" style={{ animationDelay: "150ms" }}>
+          <div className="input-container" style={{ animationDelay: "250ms" }}>
             <input
               tabIndex={0}
               placeholder="Confirm Password"
@@ -102,7 +107,11 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
               onChange={(event) => setPasswordConfirm(event.target.value)}
               type="password"
             />
-            <AiFillEyeInvisible />
+            {showPassword === true ? (
+              <AiFillEyeInvisible onClick={() => setShowPassword(false)} />
+            ) : (
+              <AiFillEye onClick={() => setShowPassword(true)} />
+            )}
             <div className="bg"></div>
           </div>
         ) : undefined}
