@@ -1103,6 +1103,14 @@ $generic-bg: #ec625f;
           background-color: $darkmode-secondary-light;
         }
       }
+      &:only-child {
+        background-color: $darkmode-primary;
+        border-radius: 20px 0px 0px 20px;
+        &.active,
+        &:hover {
+          background-color: $darkmode-secondary-light;
+        }
+      }
     }
   }
 
