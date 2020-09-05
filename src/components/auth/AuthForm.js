@@ -3,25 +3,30 @@ import { FaRegUser } from "react-icons/fa";
 import { AiOutlineMail, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import firebase from "firebase";
 
-export const AuthForm = ({ setOpen, type = "login" }) => {
+export const AuthForm = ({ setOpen, type = "signup" }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (type === "signup") {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then((authUser) => {
-          setOpen(false);
-          authUser.user.updateProfile({ displayName: username });
-        })
-        .catch((error) => {
-          setErrorMessage(error.message);
-        });
+      if (password === passwordConfirm) {
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(email, password)
+          .then((authUser) => {
+            setOpen(false);
+            authUser.user.updateProfile({ displayName: username });
+          })
+          .catch((error) => {
+            setErrorMessage(error.message);
+          });
+      } else {
+        setErrorMessage("Password confirmation does not match.");
+      }
     } else if (type === "login") {
       firebase
         .auth()
@@ -87,6 +92,20 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
           <AiFillEyeInvisible />
           <div className="bg"></div>
         </div>
+        {type === "signup" ? (
+          <div className="input-container" style={{ animationDelay: "150ms" }}>
+            <input
+              tabIndex={0}
+              placeholder="Confirm Password"
+              value={passwordConfirm}
+              required
+              onChange={(event) => setPasswordConfirm(event.target.value)}
+              type="password"
+            />
+            <AiFillEyeInvisible />
+            <div className="bg"></div>
+          </div>
+        ) : undefined}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         {type === "login" ? (
           <button tabIndex={0} type="submit" className="submit-button">
