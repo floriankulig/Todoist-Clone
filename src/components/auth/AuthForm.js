@@ -88,7 +88,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
             value={password}
             required
             onChange={(event) => setPassword(event.target.value)}
-            type="password"
+            type={showPassword ? "text" : "password"}
           />
           {showPassword === true ? (
             <AiFillEyeInvisible onClick={() => setShowPassword(false)} />
@@ -105,7 +105,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
               value={passwordConfirm}
               required
               onChange={(event) => setPasswordConfirm(event.target.value)}
-              type="password"
+              type={showPassword ? "text" : "password"}
             />
             {showPassword === true ? (
               <AiFillEyeInvisible onClick={() => setShowPassword(false)} />
