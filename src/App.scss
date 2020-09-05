@@ -716,7 +716,7 @@ header {
   &__input {
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   &__shallow {
