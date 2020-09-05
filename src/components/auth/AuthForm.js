@@ -91,9 +91,15 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
             type={showPassword ? "text" : "password"}
           />
           {showPassword === true ? (
-            <AiFillEyeInvisible onClick={() => setShowPassword(false)} />
+            <AiFillEyeInvisible
+              className="clickable-icon"
+              onClick={() => setShowPassword(false)}
+            />
           ) : (
-            <AiFillEye onClick={() => setShowPassword(true)} />
+            <AiFillEye
+              className="clickable-icon"
+              onClick={() => setShowPassword(true)}
+            />
           )}
           <div className="bg"></div>
         </div>
@@ -108,9 +114,15 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
               type={showPassword ? "text" : "password"}
             />
             {showPassword === true ? (
-              <AiFillEyeInvisible onClick={() => setShowPassword(false)} />
+              <AiFillEyeInvisible
+                className="clickable-icon"
+                onClick={() => setShowPassword(false)}
+              />
             ) : (
-              <AiFillEye onClick={() => setShowPassword(true)} />
+              <AiFillEye
+                className="clickable-icon"
+                onClick={() => setShowPassword(true)}
+              />
             )}
             <div className="bg"></div>
           </div>
