@@ -3,8 +3,13 @@ import { firebase } from "../firebase";
 
 export const UserContext = createContext();
 
+//Mock out user so our hooks have an user id to filter to fetch tasks
+const userMockOut = {
+  uid: "",
+};
+
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(userMockOut);
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
@@ -13,7 +18,7 @@ export const UserProvider = ({ children }) => {
         console.log("User signed In: ");
         console.log(user);
       } else {
-        setUser(null);
+        setUser(userMockOut);
         console.log("No User signed In");
       }
     });
