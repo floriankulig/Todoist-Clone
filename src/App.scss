@@ -913,6 +913,10 @@ header {
         padding: 5px;
         z-index: 20;
         transition: all 0.25s ease;
+
+        &.clickable-icon {
+          cursor: pointer;
+        }
       }
 
       .bg {
