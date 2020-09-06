@@ -935,20 +935,6 @@ header {
       }
     }
 
-    .error-message {
-      width: 100%;
-      color: red;
-      font-size: 1rem;
-      padding: 5px;
-      font-weight: normal;
-      border: 1px solid red;
-      border-radius: 5px;
-      margin-bottom: 0px;
-      transform: scale(0.5);
-      @include no-select();
-      animation: popIn 0.25s forwards ease;
-    }
-
     .submit-button {
       @include btn(75px);
       float: right;
@@ -956,6 +942,23 @@ header {
       margin-top: 30px;
     }
   }
+}
+
+/* Error Message
+     ============================================ */
+
+.error-message {
+  width: 100%;
+  color: red;
+  font-size: 1rem;
+  padding: 5px;
+  font-weight: normal;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-bottom: 0px;
+  transform: scale(0.5);
+  @include no-select();
+  animation: popIn 0.25s forwards ease;
 }
 
 /* Add Project
