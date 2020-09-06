@@ -562,8 +562,18 @@ header {
 
 /* No User Page
      ============================================ */
-
 .no-user-page {
+  width: 656px;
+  background-color: white;
+  margin-left: 266px;
+  border-right: $generic-border;
+  min-height: calc(100vh);
+  vertical-align: top;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 80px;
+  padding-bottom: 84px;
+
   .checklist-svg {
     height: auto;
     padding: 0 10%;
