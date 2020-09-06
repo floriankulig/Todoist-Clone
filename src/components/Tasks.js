@@ -7,15 +7,12 @@ import { getTitle, getCollatedTitle, collatedTasksExist } from "../helpers";
 import {
   useSelectedProjectValue,
   useProjectsValue,
-  useAuthValue,
 } from "../context";
-import { ReactComponent as Checklist } from "./assets/checklist.svg";
 
 export const Tasks = () => {
   const { selectedProject } = useSelectedProjectValue();
   const { projects } = useProjectsValue();
   const { tasks } = useTasks(selectedProject);
-  const currentUser = useAuthValue();
 
   let projectName = "";
 
@@ -33,39 +30,25 @@ export const Tasks = () => {
   }
 
   useEffect(() => {
-    currentUser.uid
-      ? (document.title = `${projectName}: Todoist`)
-      : (document.title = "Todoist");
+    document.title = `${projectName}: Todoist`
   });
 
   return (
     <div className="tasks" data-testid="tasks">
-      {currentUser.uid ? (
-        <h2 data-testid="project-name">{projectName}</h2>
-      ) : undefined}
-      {currentUser.uid ? (
-        <>
-          <ul className="tasks__list">
-            {tasks.map((task, index) => (
-              <li
-                key={`${task.id}`}
-                style={{ animationDelay: `${index * 40}ms` }}
-              >
-                <Checkbox id={task.id} taskDesc={task.task} />
-                <span>{task.task}</span>
-              </li>
-            ))}
-          </ul>
+      <h2 data-testid="project-name">{projectName}</h2>
+      <ul className="tasks__list">
+        {tasks.map((task, index) => (
+          <li
+            key={`${task.id}`}
+            style={{ animationDelay: `${index * 40}ms` }}
+          >
+            <Checkbox id={task.id} taskDesc={task.task} />
+            <span>{task.task}</span>
+          </li>
+        ))}
+      </ul>
 
-          <AddTask />
-        </>
-      ) : (
-          <div className="no-user-page">
-            <Checklist className="checklist-svg" />
-
-            <button className="landing-page-cta">Log In</button>
-          </div>
-        )}
+      <AddTask />
     </div>
   );
 };
