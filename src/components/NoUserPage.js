@@ -5,15 +5,22 @@ import { AuthForm } from "./auth/AuthForm"
 
 export const NoUserPage = () => {
     const [authFormOpen, setAuthFormOpen] = useState(false);
+    const [authFormType, setAuthFormType] = useState("");
+
+    const handleClick = (type) => {
+        setAuthFormOpen(true);
+        setAuthFormType(type)
+    }
 
     return (
         <div className="no-user-page">
             <Checklist className="checklist-svg" />
 
-            <button className="landing-page-cta"
+            <button
+                className="landing-page-cta"
                 aria-label="Open LogIn Modal"
-                onClick={() => setAuthFormOpen(true)}
-                onKeyDown={() => setAuthFormOpen(true)}
+                onClick={() => handleClick("login")}
+                onKeyDown={() => handleClick("login")}
             >
                 Log In
             </button>
@@ -21,12 +28,12 @@ export const NoUserPage = () => {
             <button
                 className="landing-page-cta"
                 aria-label="Open SignUp Modal"
-                onClick={() => setAuthFormOpen(true)}
-                onKeyDown={() => setAuthFormOpen(true)}
+                onClick={() => handleClick("signup")}
+                onKeyDown={() => handleClick("signup")}
             >
                 Sign Up
             </button>
-            <AuthForm setOpen={setAuthFormOpen} />
+            {authFormOpen && <AuthForm setOpen={setAuthFormOpen} type={authFormType} />}
         </div>
     )
 }
