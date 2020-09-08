@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { ReactComponent as Checklist } from "./assets/checklist.svg";
-import { AuthForm } from "./auth/AuthForm"
-
+import { AuthForm } from "./auth/AuthForm";
 
 export const NoUserPage = () => {
     const [authFormOpen, setAuthFormOpen] = useState(false);
@@ -9,12 +8,14 @@ export const NoUserPage = () => {
 
     const handleClick = (type) => {
         setAuthFormOpen(true);
-        setAuthFormType(type)
-    }
+        setAuthFormType(type);
+    };
 
     return (
         <div className="no-user-page">
             <Checklist className="checklist-svg" />
+
+            <h3 className="header">Get started with your ToDo-List!</h3>
 
             <button
                 className="landing-page-cta"
@@ -23,8 +24,8 @@ export const NoUserPage = () => {
                 onKeyDown={() => handleClick("login")}
             >
                 Log In
-            </button>
-            <span>or</span>
+      </button>
+            <p>OR</p>
             <button
                 className="landing-page-cta"
                 aria-label="Open SignUp Modal"
@@ -32,8 +33,10 @@ export const NoUserPage = () => {
                 onKeyDown={() => handleClick("signup")}
             >
                 Sign Up
-            </button>
-            {authFormOpen && <AuthForm setOpen={setAuthFormOpen} type={authFormType} />}
+      </button>
+            {authFormOpen && (
+                <AuthForm setOpen={setAuthFormOpen} type={authFormType} />
+            )}
         </div>
-    )
-}
+    );
+};
