@@ -1229,6 +1229,15 @@ $generic-bg: #ec625f;
     }
   }
 
+  // No User Page
+  .no-user-page {
+    transition: $darkmode-transition;
+    background-color: $darkmode-secondary-light;
+    border-right-color: $darkmode-secondary;
+    color: $darkmode-text;
+  }
+
+  // Authentication Forms
   .form {
     background-color: $darkmode-primary-light;
     color: $darkmode-text;
