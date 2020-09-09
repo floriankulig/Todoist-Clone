@@ -227,6 +227,9 @@ header {
           text-align: center;
           vertical-align: middle;
           float: left;
+          opacity: 0.1;
+          transform: scale(0.5);
+          animation: popIn 0.25s forwards ease-out;
 
           &:hover,
           &.active {

@@ -48,6 +48,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
                   ? "settings__user-menu active"
                   : "settings__user-menu"
               }
+              style={{ animationDelay: "150ms" }}
             >
               <button
                 data-testid="user-menu-action"
@@ -64,6 +65,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
               onKeyDown={() => setDarkMode(!darkMode)}
               className="settings__darkmode"
               data-testid="dark-mode-action"
+              style={{ animationDelay: "250ms" }}
             >
               <button aria-label="Darkmode on/off">
                 {darkMode ? <WiDaySunny /> : <WiMoonWaxingCrescent2 />}
