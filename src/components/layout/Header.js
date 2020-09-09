@@ -3,11 +3,14 @@ import { FaUserAlt, FaUserAltSlash } from "react-icons/fa";
 import { WiDaySunny, WiMoonWaxingCrescent2 } from "react-icons/wi";
 import { AddTask } from "../AddTask";
 import { AuthForm } from "../auth/AuthForm";
+import { firebase } from "../../firebase";
+import { useAuthValue } from "../../context";
 
 export const Header = ({ darkMode, setDarkMode }) => {
   const [shouldShowMain, setShouldShowMain] = useState(false);
   const [showQuickAddTask, setShowQuickAddTask] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const currentUser = useAuthValue();
 
   return (
     <header className="header" data-testid="header">
@@ -17,23 +20,28 @@ export const Header = ({ darkMode, setDarkMode }) => {
         </div>
         <div className="settings">
           <ul>
-            <li className="settings__add">
-              <button
-                data-testid="quick-add-task-action"
-                aria-label="Quick add task"
-                onClick={() => {
-                  setShowQuickAddTask(true);
-                  setShouldShowMain(true);
-                }}
-                onKeyDown={() => {
-                  setShowQuickAddTask(true);
-                  setShouldShowMain(true);
-                }}
-                tabIndex={0}
-              >
-                +
-              </button>
-            </li>
+            {currentUser.uid && (
+              <>
+                <li onClick={() => firebase.auth().signOut()}>Log Out</li>
+                <li className="settings__add">
+                  <button
+                    data-testid="quick-add-task-action"
+                    aria-label="Quick add task"
+                    onClick={() => {
+                      setShowQuickAddTask(true);
+                      setShouldShowMain(true);
+                    }}
+                    onKeyDown={() => {
+                      setShowQuickAddTask(true);
+                      setShouldShowMain(true);
+                    }}
+                    tabIndex={0}
+                  >
+                    +
+                  </button>
+                </li>
+              </>
+            )}
             <li
               className={
                 userMenuOpen
