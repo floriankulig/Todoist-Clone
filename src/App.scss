@@ -576,6 +576,7 @@ header {
   padding-right: 40px;
   padding-top: 80px;
   padding-bottom: 84px;
+  text-align: center;
 
   .checklist-svg {
     height: auto;
@@ -585,14 +586,13 @@ header {
   }
 
   .header {
-    margin-left: 10%;
+    margin: 10% 0 5% 0;
     font-size: 1.3rem;
   }
 
   .landing-page-cta {
-    @include btn(25%);
+    @include btn(40%);
     margin: 0;
-    margin-left: 10%;
 
     &:first-of-type {
       margin-top: 5px;
@@ -604,9 +604,9 @@ header {
     font-weight: bold;
     font-size: 0.8rem;
     margin: 8px 0;
-    margin-left: 10%;
-
-    width: 30%;
+    margin-left: 30%;
+    text-align: center;
+    width: 40%;
   }
 }
 
