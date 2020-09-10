@@ -993,11 +993,47 @@ header {
       }
     }
 
+    &__type-change {
+      margin-top: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      padding-left: 15px;
+      padding-right: 15px;
+
+      &-msg {
+        margin: 0;
+        color: black;
+        width: max-content;
+        font-weight: normal;
+      }
+
+      &-cta {
+        color: rgb(115, 149, 194);
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.25 ease;
+
+        &:hover {
+          color: rgb(95, 129, 173);
+        }
+      }
+    }
+
+    .error-message {
+      margin: 0;
+      margin-top: 20px;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+
     .submit-button {
       @include btn(75px);
       float: right;
       margin: 0;
-      margin-top: 30px;
+      margin-top: 20px;
     }
   }
 }
