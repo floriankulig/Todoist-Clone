@@ -3,17 +3,18 @@ import { FaRegUser } from "react-icons/fa";
 import { AiOutlineMail, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import firebase from "firebase";
 
-export const AuthForm = ({ setOpen, type = "signup" }) => {
+export const AuthForm = ({ setOpen, type = "login" }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [formType, setFormType] = useState(type);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (type === "signup") {
+    if (formType === "signup") {
       if (password === passwordConfirm) {
         firebase
           .auth()
@@ -28,7 +29,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
       } else {
         setErrorMessage("Password confirmation does not match.");
       }
-    } else if (type === "login") {
+    } else if (formType === "login") {
       firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
@@ -37,13 +38,17 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
     }
   };
 
+  const handleTypeChange = (type) => {
+    setFormType(type)
+  }
+
   return (
     <div className="form-overlay">
       <form method="POST" onSubmit={handleSubmit} className="form">
         <div className="form__top-bar">
-          {type === "login" ? (
+          {formType === "login" ? (
             <h1 className="header">Log In</h1>
-          ) : type === "signup" ? (
+          ) : formType === "signup" ? (
             <h1 className="header">Sign Up</h1>
           ) : undefined}
           <span
@@ -55,7 +60,7 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
             X
           </span>
         </div>
-        {type === "signup" ? (
+        {formType === "signup" ? (
           <div className="input-container">
             <input
               tabIndex={0}
@@ -96,14 +101,14 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
               onClick={() => setShowPassword(false)}
             />
           ) : (
-            <AiFillEye
-              className="clickable-icon"
-              onClick={() => setShowPassword(true)}
-            />
-          )}
+              <AiFillEye
+                className="clickable-icon"
+                onClick={() => setShowPassword(true)}
+              />
+            )}
           <div className="bg"></div>
         </div>
-        {type === "signup" ? (
+        {formType === "signup" ? (
           <div className="input-container" style={{ animationDelay: "150ms" }}>
             <input
               tabIndex={0}
@@ -119,23 +124,30 @@ export const AuthForm = ({ setOpen, type = "signup" }) => {
                 onClick={() => setShowPassword(false)}
               />
             ) : (
-              <AiFillEye
-                className="clickable-icon"
-                onClick={() => setShowPassword(true)}
-              />
-            )}
+                <AiFillEye
+                  className="clickable-icon"
+                  onClick={() => setShowPassword(true)}
+                />
+              )}
             <div className="bg"></div>
           </div>
         ) : undefined}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        {type === "login" ? (
-          <button tabIndex={0} type="submit" className="submit-button">
-            Log In
+
+        {formType === "login" ? (
+          <>
+            <p>Don't have an account?</p><span className="form__type-change" onClick={() => handleTypeChange("signup")}>Sign Up</span>
+            <button tabIndex={0} type="submit" className="submit-button">
+              Log In
           </button>
-        ) : type === "signup" ? (
-          <button tabIndex={0} type="submit" className="submit-button">
-            Sign Up
-          </button>
+          </>
+        ) : formType === "signup" ? (
+          <>
+            <p>Already have an account?</p><span className="form__type-change" onClick={() => handleTypeChange("login")}> Log In</span>
+            <button tabIndex={0} type="submit" className="submit-button">
+              Sign Up
+            </button>
+          </>
         ) : undefined}
       </form>
     </div>
