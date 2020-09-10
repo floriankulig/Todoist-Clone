@@ -38,7 +38,10 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
     }
   };
 
-  const handleTypeChange = (type) => setFormType(type);
+  const handleTypeChange = (type) => {
+    setFormType(type)
+    setErrorMessage("")
+  };
 
 
   return (
@@ -135,14 +138,14 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
 
         {formType === "login" ? (
           <>
-            <p>Don't have an account?</p><span className="form__type-change" onClick={() => handleTypeChange("signup")}>Sign Up</span>
+            <div className="form__type-change"><p className="form__type-change-msg">Don't have an account?</p><span className="form__type-change-cta" onClick={() => handleTypeChange("signup")}>Sign Up</span></div>
             <button tabIndex={0} type="submit" className="submit-button">
               Log In
           </button>
           </>
         ) : formType === "signup" ? (
           <>
-            <p>Already have an account?</p><span className="form__type-change" onClick={() => handleTypeChange("login")}> Log In</span>
+            <div className="form__type-change"><p className="form__type-change-msg">Already have an account?</p><span className="form__type-change-cta" onClick={() => handleTypeChange("login")}> Log In</span></div>
             <button tabIndex={0} type="submit" className="submit-button">
               Sign Up
             </button>
