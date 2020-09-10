@@ -5,7 +5,7 @@ import {
   FaRegCalendar,
   FaRegCalendarAlt,
 } from "react-icons/fa";
-import { useSelectedProjectValue } from "../../context";
+import { useSelectedProjectValue, useAuthValue } from "../../context";
 import { Projects } from "../Projects";
 import { AddProject } from "../AddProject";
 
@@ -13,6 +13,7 @@ export const Sidebar = () => {
   const { setSelectedProject } = useSelectedProjectValue();
   const [active, setActive] = useState("");
   const [showProjects, setShowProjects] = useState(false);
+  const currentUser = useAuthValue();
 
   return (
     <div className="sidebar" data-testid="sidebar">
@@ -119,7 +120,7 @@ export const Sidebar = () => {
         )}
       </ul>
 
-      {showProjects && <AddProject />}
+      {showProjects && currentUser.uid && <AddProject />}
     </div>
   );
 };
