@@ -38,9 +38,8 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
     }
   };
 
-  const handleTypeChange = (type) => {
-    setFormType(type)
-  }
+  const handleTypeChange = (type) => setFormType(type);
+
 
   return (
     <div className="form-overlay">
