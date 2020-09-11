@@ -597,7 +597,6 @@ header {
   }
 
   p {
-    background-color: white;
     font-weight: bold;
     font-size: 0.8rem;
     margin: 8px 0;
@@ -994,15 +993,16 @@ header {
     }
 
     &__type-change {
-      margin-top: 30px;
+      margin-top: 15px;
+      // padding inside icon + padding inside input container
+      margin-left: 10px;
       width: 100%;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       font-size: 0.95rem;
-      padding-left: 15px;
-      padding-right: 15px;
 
       &-msg {
+        font-size: 0.95rem;
         margin: 0;
         color: black;
         width: max-content;
@@ -1013,7 +1013,9 @@ header {
         color: rgb(115, 149, 194);
         font-weight: bold;
         cursor: pointer;
-        transition: color 0.25 ease;
+        margin-left: 5px;
+        text-decoration: underline;
+        transition: color 0.25s ease;
 
         &:hover {
           color: rgb(95, 129, 173);
@@ -1317,6 +1319,20 @@ $generic-bg: #ec625f;
         color: black;
         background-color: $darkmode-text;
         filter: brightness(1.05);
+      }
+    }
+
+    &__type-change {
+      &-msg {
+        color: $darkmode-text;
+      }
+
+      &-cta {
+        color: rgb(95, 129, 173);
+
+        &:hover {
+          color: rgb(115, 149, 194);
+        }
       }
     }
   }
