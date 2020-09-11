@@ -4,10 +4,7 @@ import { AddTask } from "./AddTask";
 import { useTasks } from "../hooks";
 import { collatedTasks } from "../constants";
 import { getTitle, getCollatedTitle, collatedTasksExist } from "../helpers";
-import {
-  useSelectedProjectValue,
-  useProjectsValue,
-} from "../context";
+import { useSelectedProjectValue, useProjectsValue } from "../context";
 
 export const Tasks = () => {
   const { selectedProject } = useSelectedProjectValue();
@@ -30,23 +27,26 @@ export const Tasks = () => {
   }
 
   useEffect(() => {
-    document.title = `${projectName}: Todoist`
+    document.title = `${projectName}: Todoist`;
   });
 
   return (
     <div className="tasks" data-testid="tasks">
       <h2 data-testid="project-name">{projectName}</h2>
-      <ul className="tasks__list">
-        {tasks.map((task, index) => (
-          <li
-            key={`${task.id}`}
-            style={{ animationDelay: `${index * 40}ms` }}
-          >
-            <Checkbox id={task.id} taskDesc={task.task} />
-            <span>{task.task}</span>
-          </li>
-        ))}
-      </ul>
+
+      {tasks && (
+        <ul className="tasks__list">
+          {tasks.map((task, index) => (
+            <li
+              key={`${task.id}`}
+              style={{ animationDelay: `${index * 40}ms` }}
+            >
+              <Checkbox id={task.id} taskDesc={task.task} />
+              <span>{task.task}</span>
+            </li>
+          ))}
+        </ul>
+      )}
 
       <AddTask />
     </div>
