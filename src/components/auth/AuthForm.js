@@ -39,10 +39,9 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
   };
 
   const handleTypeChange = (type) => {
-    setFormType(type)
-    setErrorMessage("")
+    setFormType(type);
+    setErrorMessage("");
   };
-
 
   return (
     <div className="form-overlay">
@@ -138,14 +137,30 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
 
         {formType === "login" ? (
           <>
-            <div className="form__type-change"><p className="form__type-change-msg">Don't have an account?</p><span className="form__type-change-cta" onClick={() => handleTypeChange("signup")}>Sign Up</span></div>
+            <div className="form__type-change">
+              <p className="form__type-change-msg">Don't have an account?</p>
+              <span
+                className="form__type-change-cta"
+                onClick={() => handleTypeChange("signup")}
+              >
+                Sign Up
+              </span>
+            </div>
             <button tabIndex={0} type="submit" className="submit-button">
               Log In
-          </button>
+            </button>
           </>
         ) : formType === "signup" ? (
           <>
-            <div className="form__type-change"><p className="form__type-change-msg">Already have an account?</p><span className="form__type-change-cta" onClick={() => handleTypeChange("login")}> Log In</span></div>
+            <div className="form__type-change">
+              <p className="form__type-change-msg">Already have an account?</p>
+              <span
+                className="form__type-change-cta"
+                onClick={() => handleTypeChange("login")}
+              >
+                Log In
+              </span>
+            </div>
             <button tabIndex={0} type="submit" className="submit-button">
               Sign Up
             </button>
