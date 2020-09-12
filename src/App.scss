@@ -709,6 +709,7 @@ header {
       padding: 20px 30px;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
+      animation: none;
 
       .header {
         font-size: 13px;
@@ -729,6 +730,7 @@ header {
 
   &__main {
     position: relative;
+    animation: popIn 0.25s ease forwards;
   }
 
   &__project,
@@ -773,6 +775,7 @@ header {
   &__input {
     padding: 15px;
     border-radius: 15px;
+    background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
 
