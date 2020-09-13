@@ -22,7 +22,6 @@ export const Header = ({ darkMode, setDarkMode }) => {
           <ul>
             {currentUser.uid && (
               <>
-                <li onClick={() => firebase.auth().signOut()}>Log Out</li>
                 <li className="settings__add">
                   <button
                     data-testid="quick-add-task-action"
@@ -43,11 +42,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
               </>
             )}
             <li
-              className={
-                userMenuOpen
-                  ? "settings__user-menu active"
-                  : "settings__user-menu"
-              }
+              className={userMenuOpen ? "settings__user-menu active" : "settings__user-menu"}
               style={{ animationDelay: "150ms" }}
             >
               <button
@@ -58,7 +53,21 @@ export const Header = ({ darkMode, setDarkMode }) => {
               >
                 <FaUserAlt />
               </button>
-              {userMenuOpen && <AuthForm setOpen={setUserMenuOpen} />}
+              {userMenuOpen && (
+                <ul className="dropdown-menu">
+                  <li>
+                    <FaUserAltSlash />
+                    <span
+                      onClick={() => { setUserMenuOpen(false); firebase.auth().signOut() }}
+                      onKeyDown={() => { setUserMenuOpen(false); firebase.auth().signOut() }}
+                      aria-label="Log the current user out"
+                      role="button"
+                    >
+                      Log Out
+                    </span>
+                  </li>
+                </ul>
+              )}
             </li>
             <li
               onClick={() => setDarkMode(!darkMode)}
