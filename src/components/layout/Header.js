@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaUserAlt, FaUserAltSlash } from "react-icons/fa";
 import { WiDaySunny, WiMoonWaxingCrescent2 } from "react-icons/wi";
 import { AddTask } from "../AddTask";
-import { AuthForm } from "../auth/AuthForm";
+import { UserMenu } from "../UserMenu";
 import { firebase } from "../../firebase";
 import { useAuthValue } from "../../context";
 
@@ -11,6 +11,8 @@ export const Header = ({ darkMode, setDarkMode }) => {
   const [showQuickAddTask, setShowQuickAddTask] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const currentUser = useAuthValue();
+
+  console.log(firebase.auth().currentUser)
 
   return (
     <header className="header" data-testid="header">
@@ -53,21 +55,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
               >
                 <FaUserAlt />
               </button>
-              {userMenuOpen && (
-                <ul className="dropdown-menu">
-                  <li>
-                    <FaUserAltSlash />
-                    <span
-                      onClick={() => { setUserMenuOpen(false); firebase.auth().signOut() }}
-                      onKeyDown={() => { setUserMenuOpen(false); firebase.auth().signOut() }}
-                      aria-label="Log the current user out"
-                      role="button"
-                    >
-                      Log Out
-                    </span>
-                  </li>
-                </ul>
-              )}
+              {userMenuOpen && <UserMenu setOpen={setUserMenuOpen} />}
             </li>
             <li
               onClick={() => setDarkMode(!darkMode)}

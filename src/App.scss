@@ -278,6 +278,7 @@ header {
                 width: 100%;
                 font-weight: bold;
                 padding: 0 10px;
+                justify-content: start;
 
                 svg {
                   color: white;
@@ -286,9 +287,22 @@ header {
                   height: 18px;
                 }
 
-                &:last-of-type {
-                  margin-bottom: 10px;
+                &:not(:first-of-type) {
+                  margin-top: 5px;
                 }
+
+                &:last-of-type {
+                  margin-bottom: 5px;
+                }
+              }
+            }
+
+            .form {
+              .submit-button {
+                @include btn(75px);
+                float: right;
+                margin: 0;
+                margin-top: 20px;
               }
             }
           }
