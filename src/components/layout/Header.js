@@ -46,12 +46,13 @@ export const Header = ({ darkMode, setDarkMode }) => {
             <li
               className={userMenuOpen ? "settings__user-menu active" : "settings__user-menu"}
               style={{ animationDelay: "150ms" }}
+              onClick={() => setUserMenuOpen(!userMenuOpen)}
+              onKeyDown={() => setUserMenuOpen(!userMenuOpen)}
+              onMouseEnter={() => setUserMenuOpen(true)}
             >
               <button
                 data-testid="user-menu-action"
                 aria-label="User Menu on/off"
-                onClick={() => setUserMenuOpen(!userMenuOpen)}
-                onKeyDown={() => setUserMenuOpen(!userMenuOpen)}
               >
                 <FaUserAlt />
               </button>
