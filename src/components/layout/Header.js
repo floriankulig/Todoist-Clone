@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaUserAlt, FaUserAltSlash } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 import { WiDaySunny, WiMoonWaxingCrescent2 } from "react-icons/wi";
 import { AddTask } from "../AddTask";
 import { UserMenu } from "../UserMenu";
