@@ -48,7 +48,6 @@ export const Header = ({ darkMode, setDarkMode }) => {
               style={{ animationDelay: "150ms" }}
               onClick={() => setUserMenuOpen(!userMenuOpen)}
               onKeyDown={() => setUserMenuOpen(!userMenuOpen)}
-              onMouseEnter={() => setUserMenuOpen(true)}
             >
               <button
                 data-testid="user-menu-action"

@@ -17,7 +17,7 @@ export const UserMenu = ({ setOpen }) => {
 
   return (
     <>
-      <ul className="dropdown-menu" onMouseLeave={() => setOpen(false)}>
+      <ul className="dropdown-menu">
         {currentUser.uid ? (
           <li
             onClick={() => {
