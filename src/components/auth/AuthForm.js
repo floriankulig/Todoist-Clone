@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import { FaRegUser } from "react-icons/fa";
 import { AiOutlineMail, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import firebase from "firebase";
@@ -43,7 +44,7 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
     setErrorMessage("");
   };
 
-  return (
+  return createPortal(
     <div className="form-overlay">
       <form method="POST" onSubmit={handleSubmit} className="form">
         <div className="form__top-bar">
@@ -102,11 +103,11 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
               onClick={() => setShowPassword(false)}
             />
           ) : (
-              <AiFillEye
-                className="clickable-icon"
-                onClick={() => setShowPassword(true)}
-              />
-            )}
+            <AiFillEye
+              className="clickable-icon"
+              onClick={() => setShowPassword(true)}
+            />
+          )}
           <div className="bg"></div>
         </div>
         {formType === "signup" ? (
@@ -125,11 +126,11 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
                 onClick={() => setShowPassword(false)}
               />
             ) : (
-                <AiFillEye
-                  className="clickable-icon"
-                  onClick={() => setShowPassword(true)}
-                />
-              )}
+              <AiFillEye
+                className="clickable-icon"
+                onClick={() => setShowPassword(true)}
+              />
+            )}
             <div className="bg"></div>
           </div>
         ) : undefined}
@@ -167,6 +168,7 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
           </>
         ) : undefined}
       </form>
-    </div>
+    </div>,
+    document.getElementById("modal-entry")
   );
 };

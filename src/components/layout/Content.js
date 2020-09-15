@@ -14,6 +14,7 @@ export const Content = () => {
         ? <Tasks />
         : <NoUserPage />
       }
+      <div id="modal-entry"></div>
     </section>
   )
 }
