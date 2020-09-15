@@ -323,53 +323,6 @@ header {
             }
           }
         }
-
-        &__user-menu-list {
-          position: relative;
-          transform: translateX(-40px);
-
-          ul {
-            position: absolute;
-            background-color: $generic-bg;
-            margin-top: 22px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: left;
-            border-radius: 0 0 5px 5px;
-
-            li {
-              width: fit-content;
-              height: fit-content;
-              display: inline-block;
-              white-space: nowrap;
-
-              button {
-                padding: 10px 25px;
-                transition: scale 0.1s ease-out;
-
-                svg {
-                  // for svgs later
-                  width: 15px;
-                  height: 15px;
-                  margin-right: 10px;
-                }
-              }
-
-              &:hover {
-                background-color: $generic-bg;
-
-                button {
-                  scale: 1.1;
-                }
-              }
-
-              &:last-child {
-                margin-bottom: 10px;
-              }
-            }
-          }
-        }
       }
     }
   }
@@ -1160,6 +1113,12 @@ $generic-bg: #ec625f;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
     background-color: $darkmode-header;
     border-color: transparent;
+
+    nav ul .settings__user-menu {
+      .dropdown-menu {
+        background: $darkmode-header;
+      }
+    }
   }
 
   //SIDEBAR
