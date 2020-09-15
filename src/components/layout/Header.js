@@ -3,7 +3,6 @@ import { FaUserAlt } from "react-icons/fa";
 import { WiDaySunny, WiMoonWaxingCrescent2 } from "react-icons/wi";
 import { AddTask } from "../AddTask";
 import { UserMenu } from "../UserMenu";
-import { firebase } from "../../firebase";
 import { useAuthValue } from "../../context";
 
 export const Header = ({ darkMode, setDarkMode }) => {
@@ -11,8 +10,6 @@ export const Header = ({ darkMode, setDarkMode }) => {
   const [showQuickAddTask, setShowQuickAddTask] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const currentUser = useAuthValue();
-
-  console.log(firebase.auth().currentUser)
 
   return (
     <header className="header" data-testid="header">
@@ -44,7 +41,11 @@ export const Header = ({ darkMode, setDarkMode }) => {
               </>
             )}
             <li
-              className={userMenuOpen ? "settings__user-menu active" : "settings__user-menu"}
+              className={
+                userMenuOpen
+                  ? "settings__user-menu active"
+                  : "settings__user-menu"
+              }
               style={{ animationDelay: "150ms" }}
               onClick={() => setUserMenuOpen(!userMenuOpen)}
               onKeyDown={() => setUserMenuOpen(!userMenuOpen)}
