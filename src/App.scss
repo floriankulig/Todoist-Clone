@@ -369,6 +369,16 @@ header {
       font-weight: bold;
       background-color: white;
     }
+    //Make sure first and last project have rounded corners
+    &:first-of-type {
+      border-radius: 20px 0px 0px 0px;
+    }
+    &:last-of-type {
+      border-radius: 0px 0px 0px 20px;
+    }
+    &:only-child {
+      border-radius: 20px 0px 0px 20px;
+    }
   }
 
   &__projects {
@@ -459,6 +469,19 @@ header {
       &:hover {
         font-weight: bold;
         background-color: white;
+      }
+
+      &:nth-child(1) {
+        &.active,
+        &:hover {
+          border-radius: 20px 0px 0px 0px;
+        }
+      }
+      &:nth-child(3) {
+        &.active,
+        &:hover {
+          border-radius: 0px 0px 0px 20px;
+        }
       }
     }
   }
@@ -1103,27 +1126,9 @@ $generic-bg: #ec625f;
             }
           }
         }
-        &:nth-child(1) {
-          &.active,
-          &:hover {
-            background-color: $darkmode-secondary-light;
-            border-radius: 20px 0px 0px 0px;
-          }
-        }
-        &:nth-child(2) {
-          &.active,
-          &:hover {
-            background-color: $darkmode-secondary-light;
-            border-radius: 0;
-          }
-        }
-
-        &:nth-child(3) {
-          &.active,
-          &:hover {
-            background-color: $darkmode-secondary-light;
-            border-radius: 0px 0px 0px 20px;
-          }
+        &.active,
+        &:hover {
+          background-color: $darkmode-secondary-light;
         }
       }
     }
