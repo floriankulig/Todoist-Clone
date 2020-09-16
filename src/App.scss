@@ -1255,6 +1255,13 @@ $generic-bg: #ec625f;
     }
   }
 
+  .project-delete-modal {
+    background-color: $darkmode-primary-light;
+    span {
+      color: $darkmode-text;
+    }
+  }
+
   // No User Page
   .no-user-page {
     transition: $darkmode-transition;
