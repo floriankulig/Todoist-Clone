@@ -1094,10 +1094,8 @@ $generic-bg: #ec625f;
     background-color: $darkmode-header;
     border-color: transparent;
 
-    nav ul .settings__user-menu {
-      .dropdown-menu {
-        background: $darkmode-header;
-      }
+    .dropdown-menu {
+      background: $darkmode-header !important;
     }
   }
 
