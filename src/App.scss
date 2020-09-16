@@ -142,14 +142,6 @@ $generic-bg: #db4c3f;
   }
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0px);
-    transform: scale(1);
-  }
-}
-
 @keyframes popIn {
   from {
     opacity: 0.1;
@@ -376,32 +368,6 @@ header {
     &:hover {
       font-weight: bold;
       background-color: white;
-    }
-
-    &:nth-child(1) {
-      .sidebar__dot {
-        color: #6accbc;
-      }
-    }
-    &:nth-child(2) {
-      .sidebar__dot {
-        color: #fad003;
-      }
-    }
-    &:nth-child(3) {
-      .sidebar__dot {
-        color: #ff8d85;
-      }
-    }
-    &:nth-child(4) {
-      .sidebar__dot {
-        color: #ff9932;
-      }
-    }
-    &:nth-child(5) {
-      .sidebar__dot {
-        color: #af38eb;
-      }
     }
   }
 
@@ -638,7 +604,7 @@ header {
     opacity: 0.1;
     transform: translateY(-50px);
     transform: scale(0.5);
-    animation: fadeIn forwards 0.2s ease;
+    animation: popIn forwards 0.2s ease;
 
     .checkbox-holder {
       margin-right: 20px;
