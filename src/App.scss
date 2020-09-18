@@ -642,15 +642,51 @@ header {
       justify-content: center;
       line-height: 16px;
 
-      .checkbox {
+      label {
         cursor: pointer;
-        border-color: gray;
-        color: #343434;
-        height: 16px;
-        width: 16px;
-        display: block;
-        border: 1px solid gray;
-        border-radius: 16px;
+        font-size: 0.6rem;
+        display: grid;
+        grid-template-columns: auto 3fr;
+
+        svg {
+          width: 2em;
+          stroke: $generic-bg;
+          stroke-width: 5;
+          fill: white;
+
+          .box {
+            stroke-dasharray: 320;
+            stroke-dashoffset: 0;
+            fill: white !important;
+          }
+          .check {
+            stroke-dasharray: 70;
+            stroke-dashoffset: 70;
+            fill: none;
+          }
+        }
+      }
+
+      &.checked label {
+        .box {
+          stroke-dashoffset: 320;
+          transition: stroke-dashoffset 0.3s linear;
+        }
+        .check {
+          stroke-dashoffset: 0;
+          transition: stroke-dashoffset 0.3s linear;
+        }
+      }
+
+      .reverse {
+        .box {
+          stroke-dashoffset: 0;
+          transition: stroke-dashoffset 0.3s linear;
+        }
+        .check {
+          stroke-dashoffset: 70;
+          transition: stroke-dashoffset 0.3s linear;
+        }
       }
     }
   }
