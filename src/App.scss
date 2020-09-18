@@ -644,7 +644,7 @@ header {
 
       label {
         cursor: pointer;
-        font-size: 0.6rem;
+        font-size: 10px;
         display: grid;
         grid-template-columns: auto 3fr;
 
@@ -1281,10 +1281,6 @@ $generic-bg: #ec625f;
     transition: $darkmode-transition;
 
     &__list li {
-      .checkbox {
-        background-color: $darkmode-svg;
-      }
-
       span {
         color: $darkmode-text;
       }

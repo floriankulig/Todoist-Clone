@@ -21,7 +21,6 @@ export const Checkbox = ({ id, taskDesc }) => {
       role="button"
       tabIndex={0}
     >
-      {/* <input type="checkbox" name="cb" id="cb"/> */}
       <label htmlFor="cb" id="checkbox">
         <svg viewBox="0 0 100 100" className={checked ? "reverse" : undefined}>
           <path
