@@ -153,6 +153,21 @@ $generic-bg: #db4c3f;
   }
 }
 
+@keyframes snackbarAnimation {
+  from {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 /* Header
      ============================================ */
 header {
@@ -1072,6 +1087,32 @@ header {
   transform: scale(0.5);
   @include no-select();
   animation: popIn 0.25s forwards ease;
+}
+
+/* Snackbar
+     ============================================ */
+
+.snackbar {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 0 20px;
+  width: 200px;
+  justify-content: space-between;
+  box-shadow: $generic-box-shadow;
+
+  span {
+    font-weight: 500;
+    font-size: 22px;
+    height: 100%;
+    margin: auto 0;
+    color: $generic-bg;
+    transform: rotateZ(45deg);
+    cursor: pointer;
+  }
 }
 
 /* Add Project
