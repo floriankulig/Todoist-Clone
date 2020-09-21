@@ -1100,19 +1100,9 @@ header {
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   padding: 0 20px;
-  width: 200px;
   justify-content: space-between;
   box-shadow: $generic-box-shadow;
-
-  span {
-    font-weight: 500;
-    font-size: 22px;
-    height: 100%;
-    margin: auto 0;
-    color: $generic-bg;
-    transform: rotateZ(45deg);
-    cursor: pointer;
-  }
+  animation: snackbarAnimation 1s linear forwards;
 }
 
 /* Add Project
@@ -1344,7 +1334,6 @@ $generic-bg: #ec625f;
   }
 
   // Snackbar
-
   .snackbar {
     background-color: $darkmode-secondary-light;
     p {

@@ -39,13 +39,7 @@ export const Checkbox = ({ id, taskDesc }) => {
         </label>
       </div>
 
-      {snackbarOpen && (
-        <Snackbar
-          open={snackbarOpen}
-          setOpen={setSnackbarOpen}
-          message={"Task archived"}
-        />
-      )}
+      {snackbarOpen && <Snackbar message={`Task "${taskDesc}" archived!`} />}
     </>
   );
 };
