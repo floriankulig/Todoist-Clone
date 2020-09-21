@@ -11,7 +11,7 @@ export const Checkbox = ({ id, taskDesc }) => {
     setSnackbarOpen(true);
     setTimeout(() => {
       firebase.firestore().collection("tasks").doc(id).delete();
-    }, 1000);
+    }, 2000);
   };
 
   return (
