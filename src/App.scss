@@ -1343,6 +1343,15 @@ $generic-bg: #ec625f;
     color: $darkmode-text;
   }
 
+  // Snackbar
+
+  .snackbar {
+    background-color: $darkmode-secondary-light;
+    p {
+      color: $darkmode-text;
+    }
+  }
+
   // Authentication Forms
   .form {
     background-color: $darkmode-primary-light;
