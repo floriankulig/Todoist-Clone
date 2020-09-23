@@ -1074,7 +1074,6 @@ header {
 
 /* Error Message
      ============================================ */
-
 .error-message {
   width: 100%;
   color: red;
@@ -1091,7 +1090,6 @@ header {
 
 /* Snackbar
      ============================================ */
-
 .snackbar {
   position: absolute;
   bottom: 50px;
@@ -1243,6 +1241,55 @@ $generic-bg: #ec625f;
         &:hover {
           background-color: $darkmode-secondary-light;
         }
+      }
+    }
+  }
+
+  .tasks__list li .checkbox-holder {
+    label {
+      cursor: pointer;
+      font-size: 10px;
+      display: grid;
+      grid-template-columns: auto 3fr;
+
+      svg {
+        width: 2em;
+        stroke: $generic-bg;
+        stroke-width: 5;
+        // fill: white;
+
+        .box {
+          stroke-dasharray: 320;
+          stroke-dashoffset: 0;
+          fill: $darkmode-primary !important;
+        }
+        .check {
+          stroke-dasharray: 70;
+          stroke-dashoffset: 70;
+          fill: none;
+        }
+      }
+    }
+
+    &.checked label {
+      .box {
+        stroke-dashoffset: 320;
+        transition: stroke-dashoffset 0.3s linear;
+      }
+      .check {
+        stroke-dashoffset: 0;
+        transition: stroke-dashoffset 0.3s linear;
+      }
+    }
+
+    .reverse {
+      .box {
+        stroke-dashoffset: 0;
+        transition: stroke-dashoffset 0.3s linear;
+      }
+      .check {
+        stroke-dashoffset: 70;
+        transition: stroke-dashoffset 0.3s linear;
       }
     }
   }
