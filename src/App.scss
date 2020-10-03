@@ -820,6 +820,7 @@ header {
     padding: 0px 5px;
     border-radius: 25%;
     transition: background-color 0.25s ease;
+    cursor: pointer;
 
     &:hover {
       background-color: rgba(175, 175, 175, 0.2);
@@ -831,6 +832,7 @@ header {
     color: #545454;
     font-size: 14px;
     margin-left: 7px;
+    cursor: pointer;
   }
 }
 
