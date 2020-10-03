@@ -2,7 +2,8 @@
 
 Cloned Todoist's basic functionality and UI. Also added some custom tweaks.
 
-Built using React, Custom hooks, React's Context API, Sass and Firebase
+Built using React, Custom hooks, React's Context API, Sass and Firebase.
+[Try it out for yourself!](https://floriankulig.github.io/Todoist-Clone/)
 
 ## Preview
 
