@@ -272,8 +272,8 @@ header {
               position: absolute;
               background: $generic-bg;
               color: white;
-              margin-top: 43px;
-              transform: translateY(50%);
+              top: 0;
+              transform: translateY(95%);
               width: fit-content;
               display: flex;
               justify-content: space-around;
