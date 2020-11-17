@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { FaRegUser } from "react-icons/fa";
 import { AiOutlineMail, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import firebase from "firebase";
+import { useOnClickOutside } from "../../hooks";
 
 export const AuthForm = ({ setOpen, type = "login" }) => {
   const [username, setUsername] = useState("");
@@ -12,6 +13,9 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [formType, setFormType] = useState(type);
+
+  const ref = useRef();
+  useOnClickOutside(ref, () => setOpen(false));
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -46,7 +50,7 @@ export const AuthForm = ({ setOpen, type = "login" }) => {
 
   return createPortal(
     <div className="form-overlay">
-      <form method="POST" onSubmit={handleSubmit} className="form">
+      <form method="POST" onSubmit={handleSubmit} className="form" ref={ref}>
         <div className="form__top-bar">
           {formType === "login" ? (
             <h1 className="header">Log In</h1>
