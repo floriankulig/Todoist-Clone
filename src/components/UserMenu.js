@@ -39,11 +39,9 @@ export const UserMenu = ({ setOpen }) => {
             <li
               onClick={() => {
                 handleAuthClick("login");
-                // setOpen(false);
               }}
               onKeyDown={() => {
                 handleAuthClick("login");
-                // setOpen(false);
               }}
               aria-label="Open LogIn Form"
               role="button"
@@ -54,11 +52,9 @@ export const UserMenu = ({ setOpen }) => {
             <li
               onClick={() => {
                 handleAuthClick("signup");
-                // setOpen(false);
               }}
               onKeyDown={() => {
                 handleAuthClick("signup");
-                // setOpen(false);
               }}
               aria-label="Open SignUp Form"
               role="button"
