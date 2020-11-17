@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FaUserAlt, FaUserAltSlash } from "react-icons/fa";
 import { useAuthValue } from "../context";
 import { firebase } from "../firebase";
 import { AuthForm } from "./auth/AuthForm";
+import { useOnClickOutside } from "../hooks";
 
 export const UserMenu = ({ setOpen }) => {
   const currentUser = useAuthValue();
 
   const [authFormOpen, setAuthFormOpen] = useState(false);
   const [authFormType, setAuthFormType] = useState("");
+
+  const ref = useRef();
+  useOnClickOutside(ref, () => setOpen(false));
 
   const handleAuthClick = (type) => {
     setAuthFormOpen(true);
@@ -17,7 +21,7 @@ export const UserMenu = ({ setOpen }) => {
 
   return (
     <>
-      <ul className="dropdown-menu">
+      <ul className="dropdown-menu" ref={ref}>
         {currentUser.uid ? (
           <li
             onClick={() => {
