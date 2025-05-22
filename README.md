@@ -1,5 +1,7 @@
 # Todoist Clone
 
+My first Web-App. Followed a tutorial and later extended with some custom features.
+
 Cloned Todoist's basic functionality and UI. Also added some custom tweaks.
 
 Built using React, Custom hooks, React's Context API, Sass and Firebase.
